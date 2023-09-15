@@ -1,0 +1,10 @@
+{
+  "required": true,
+  "package": "net.endgineer.curseoftheabyss.utils.andrew6rant.mc237017fix.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "curseoftheabyss.refmap.json",
+  "mixins": ["NoiseBasedChunkGeneratorMixin"],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
