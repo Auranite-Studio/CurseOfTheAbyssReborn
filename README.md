@@ -1,6 +1,6 @@
 # Curse of the Abyss
 
-> To those who offer up their bodies and challenge the chasm for which even darkness is no match, the Abyss is said to provide all. Life and death, Curses and Blessings - all of it. At the end of their journey, what fate will they choose to meet? <div align="right"> &mdash; *Unknown* </div>
+> To those who offer up their bodies and challenge the chasm for which even darkness is no match, the Abyss is said to provide all. Life and death, Curses and Blessings &mdash; all of it. At the end of their journey, what fate will they choose to meet? <div align="right"> &mdash; Adage of the White Whistles </div>
 
 ## Integration
 
