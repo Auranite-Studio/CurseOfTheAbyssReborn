@@ -39,3 +39,7 @@ This mod adds integration with [Curios](https://github.com/TheIllusiveC4/Curios)
 ### Thirst Was Taken
 
 This mod adds integration with [Thirst Was Taken](https://github.com/ghen-git/Thirst-Mod), my personal favorite thirst mod. Strains of ascension associated with vomiting will cause exhaustion on thirst (in addition to hunger) if this mod is installed.
+
+### Scaled
+
+Though [Scaled](https://github.com/Lyof429/Scaled) does not interact with this mod, it is still recommended for those that seek increasing difficulty with depth.
