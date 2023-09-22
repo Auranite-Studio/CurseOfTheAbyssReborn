@@ -4,7 +4,7 @@ import javax.annotation.Nonnull;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.server.MinecraftServer;
 import net.endgineer.curseoftheabyss.config.variables.ModVariables;
-import net.endgineer.curseoftheabyss.utils.kdotjpg.opensimplex2.java.OpenSimplex2S;
+import net.endgineer.curseoftheabyss.utils.OpenSimplex2S;
 import net.minecraft.nbt.CompoundTag;
 
 public class Abyss extends SavedData {
