@@ -1,8 +1,13 @@
-package net.endgineer.curseoftheabyss.config.spec.abyss.sections;
+package net.endgineer.curseoftheabyss.config.spec.strains.sections;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 
-public class StrainSection {
+public class DeformationSection {
+    public final int DEFAULT_DEFIANCE_LAYER = 3;
+    public final int MINIMUM_DEFIANCE_LAYER = 1;
+    public final int MAXIMUM_DEFIANCE_LAYER = 7;
+    public final ForgeConfigSpec.ConfigValue<Integer> DEFIANCE_LAYER;
+
     public final int DEFAULT_YIELD_LAYER = 5;
     public final int MINIMUM_YIELD_LAYER = 1;
     public final int MAXIMUM_YIELD_LAYER = 7;
@@ -16,11 +21,17 @@ public class StrainSection {
     public final double MINIMUM_STRAIN_HARDENING_COEFFICIENT = 0;
     public final ForgeConfigSpec.ConfigValue<Double> STRAIN_HARDENING_COEFFICIENT;
 
-    public StrainSection(ForgeConfigSpec.Builder builder) {
-        builder.push("STRAIN");
+    public DeformationSection(ForgeConfigSpec.Builder builder) {
+        builder.push("DEFORMATION");
+
+        DEFIANCE_LAYER = builder.comment(
+            "The layer at the bottom of which the Curse of the Abyss begins to result in bodily harm. Beyond that boundary, linear strains begin.\n"+
+            "Values: [ "+MINIMUM_DEFIANCE_LAYER+", "+MAXIMUM_DEFIANCE_LAYER+" ]\n"+
+            "Default: "+DEFAULT_DEFIANCE_LAYER)
+            .define("DEFIANCE_LAYER", DEFAULT_DEFIANCE_LAYER, value -> value != null && (Integer) value >= MINIMUM_DEFIANCE_LAYER && (Integer) value <= MAXIMUM_DEFIANCE_LAYER);
 
         YIELD_LAYER = builder.comment(
-            "The layer at the bottom of which lies the absolute boundary of the Abyss. Beyond that boundary, strains become exponential and permanently deform the player.\n"+
+            "The layer at the bottom of which lies the Absolute Boundary of the Abyss. Beyond that boundary, strains become exponential and permanently deform the player.\n"+
             "Values: [ "+MINIMUM_YIELD_LAYER+", "+MAXIMUM_YIELD_LAYER+" ]\n"+
             "Default: "+DEFAULT_YIELD_LAYER)
             .define("YIELD_LAYER", DEFAULT_YIELD_LAYER, value -> value != null && (Integer) value >= MINIMUM_YIELD_LAYER && (Integer) value <= MAXIMUM_YIELD_LAYER);

@@ -58,17 +58,17 @@ public class CurseCapability implements Serializable {
             this.derangement = Math.min(this.derangement + Abyss.distortion(field, y), 1);
             
             if(current_depth - this.lowest_depth > 10 && this.previous_depth < current_depth) {
-                stress = (current_depth-previous_depth)*Abyss.strain(field, this.lowest_depth);
+                stress = (current_depth-previous_depth)*Abyss.strain_deformation(field, this.lowest_depth);
             }
             this.previous_depth = current_depth;
-        } else if(this.strains.handled() && this.lowest_depth >= Abyss.boundary(ModVariables.STRAIN.YIELD_LAYER)) {
+        } else if(this.strains.handled() && this.lowest_depth >= Abyss.boundary(ModVariables.DEFORMATION.YIELD_LAYER)) {
             this.lowest_depth = 0;
             this.previous_depth = 0;
         }
 
         double strain = this.strains.tick(stress);
 
-        if(Abyss.layer(this.lowest_depth) > ModVariables.STRAIN.YIELD_LAYER) {
+        if(Abyss.layer(this.lowest_depth) > ModVariables.DEFORMATION.YIELD_LAYER) {
             this.constitution = Math.max(0, this.constitution - strain);
         }
 

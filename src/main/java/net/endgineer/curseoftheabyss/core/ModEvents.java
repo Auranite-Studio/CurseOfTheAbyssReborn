@@ -1,7 +1,6 @@
 package net.endgineer.curseoftheabyss.core;
 
 import java.util.Map;
-
 import net.endgineer.curseoftheabyss.CurseOfTheAbyss;
 import net.endgineer.curseoftheabyss.common.Abyss;
 import net.endgineer.curseoftheabyss.common.CurseCapability;
@@ -79,7 +78,7 @@ public class ModEvents {
             Player player = ((Player) livingEntity);
             
             player.getCapability(CurseProvider.CURSE).ifPresent(curse -> {
-                if(Abyss.layer(curse.getLowestDepth()) > ModVariables.STRAIN.YIELD_LAYER && player.getHealth()+event.getAmount() > curse.getConstitution()) {
+                if(Abyss.layer(curse.getLowestDepth()) > ModVariables.DEFORMATION.YIELD_LAYER && player.getHealth()+event.getAmount() > curse.getConstitution()) {
                     event.setAmount((float) curse.getConstitution() - player.getHealth());
                 }
             });
