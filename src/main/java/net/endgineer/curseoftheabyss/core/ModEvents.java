@@ -89,7 +89,7 @@ public class ModEvents {
     @SubscribeEvent
     public static void onServerChatEvent(ServerChatEvent event) {
         event.getPlayer().getCapability(CurseProvider.CURSE).ifPresent(curse -> {
-            event.setComponent(new TranslatableComponent((event.getPlayer().level.dimension().location().getPath() == "overworld" ? event.getPlayer().getY() : 0)+";"+curse.getDerangement()+";"+event.getUsername()+";"+event.getMessage()));
+            event.setComponent(new TranslatableComponent((event.getPlayer().level.dimension().location().getPath() == "overworld" ? event.getPlayer().getY() : 0)+"\n"+curse.getDerangement()+"\n"+event.getUsername()+"\n"+event.getMessage()));
         });
     }
 
@@ -97,7 +97,7 @@ public class ModEvents {
     public static void onClientChatReceived(ClientChatReceivedEvent event) {
         Minecraft minecraft = Minecraft.getInstance();
 
-        String[] constituents = event.getMessage().getString().split(";", 4);
+        String[] constituents = event.getMessage().getString().split("\n", 4);
 
         if(constituents.length != 4) { return; }
         
