@@ -69,10 +69,10 @@ public class CurseCapability implements Serializable {
             this.previous_depth = 0;
         }
 
-        this.strains.tick(stress, this.lowest_depth, field);
+        this.strains.tick(stress, current_depth, field);
 
-        if(Abyss.layer(this.lowest_depth) > ModVariables.DEFORMATION.YIELD_LAYER) {
-            this.constitution = Math.max(0, this.constitution - this.strains.observeDeformation(false));
+        if(this.strains.observeHollowing(false) > 0) {
+            this.constitution = Math.max(0, this.constitution - this.strains.observeHollowing(true));
         }
 
         sync(player, field);

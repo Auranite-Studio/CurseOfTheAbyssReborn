@@ -2,6 +2,8 @@ package net.endgineer.curseoftheabyss.common;
 
 import java.io.Serializable;
 
+import net.endgineer.curseoftheabyss.config.variables.ModVariables;
+
 public class Strains implements Serializable {
     private static double[] log_normal_distribution = {
         0.00354476258391,
@@ -15,6 +17,9 @@ public class Strains implements Serializable {
         0.25763431137900,
         0.50193656351700
     };
+
+    private double strain_hollowing;
+    private double[] buffer_hollowing;
 
     private double strain_deformation;
     private double[] buffer_deformation;
@@ -39,6 +44,9 @@ public class Strains implements Serializable {
     private int stress_tick;
 
     public Strains() {
+        this.strain_hollowing = 0;
+        this.buffer_hollowing = new double[10];
+
         this.strain_deformation = 0;
         this.buffer_deformation = new double[10];
 
@@ -60,6 +68,12 @@ public class Strains implements Serializable {
         this.stress = 0;
         this.buffer_tick = 0;
         this.stress_tick = 0;
+    }
+
+    public double observeHollowing(boolean alter) {
+        double temp = this.strain_hollowing;
+        if(alter) { this.strain_hollowing = 0; }
+        return temp;
     }
 
     public double observeDeformation(boolean alter) {
@@ -98,7 +112,7 @@ public class Strains implements Serializable {
         return temp;
     }
 
-    public void tick(double stress, double y_lowest, double field) {
+    public void tick(double stress, double depth, double field) {
         this.stress += stress;
         this.stress_tick++;
 
@@ -108,13 +122,15 @@ public class Strains implements Serializable {
             for(int second = 0; second < 10; second++) {
                 int buffer_step = (buffer_second + second) % 10;
                 double convolved_stress = Strains.log_normal_distribution[second] * this.stress;
+                double deformation = convolved_stress * Abyss.strain_deformation(field, depth);
 
-                this.buffer_deformation[buffer_step] += convolved_stress * Abyss.strain_deformation(field, y_lowest);
-                this.buffer_deprivation[buffer_step] += convolved_stress * Abyss.strain_deprivation(field, y_lowest);
-                this.buffer_exhaustion[buffer_step] += convolved_stress * Abyss.strain_exhaustion(field, y_lowest);
-                this.buffer_hallucination[buffer_step] += convolved_stress * Abyss.strain_hallucination(field, y_lowest);
-                this.buffer_nausea[buffer_step] += convolved_stress * Abyss.strain_nausea(field, y_lowest);
-                this.buffer_numbness[buffer_step] += convolved_stress * Abyss.strain_numbness(field, y_lowest);
+                this.buffer_hollowing[buffer_step] += Abyss.layer(depth) > ModVariables.DEFORMATION.YIELD_LAYER ? deformation : 0;
+                this.buffer_deformation[buffer_step] += deformation;
+                this.buffer_deprivation[buffer_step] += convolved_stress * Abyss.strain_deprivation(field, depth);
+                this.buffer_exhaustion[buffer_step] += convolved_stress * Abyss.strain_exhaustion(field, depth);
+                this.buffer_hallucination[buffer_step] += convolved_stress * Abyss.strain_hallucination(field, depth);
+                this.buffer_nausea[buffer_step] += convolved_stress * Abyss.strain_nausea(field, depth);
+                this.buffer_numbness[buffer_step] += convolved_stress * Abyss.strain_numbness(field, depth);
             }
 
             this.stress = 0;
@@ -122,6 +138,8 @@ public class Strains implements Serializable {
         }
 
         if(this.buffer_tick % 20 == 0) {
+            this.strain_hollowing += this.buffer_hollowing[buffer_second];
+            this.buffer_hollowing[buffer_second] = 0;
             this.strain_deformation += this.buffer_deformation[buffer_second];
             this.buffer_deformation[buffer_second] = 0;
             this.strain_deprivation += this.buffer_deprivation[buffer_second];
@@ -141,6 +159,7 @@ public class Strains implements Serializable {
 
     public boolean empty() {
         for(int i = 0; i < 10; i++) {
+            if(this.buffer_hollowing[i] > 0) { return false; }
             if(this.buffer_deformation[i] > 0) { return false; }
             if(this.buffer_deprivation[i] > 0) { return false; }
             if(this.buffer_exhaustion[i] > 0) { return false; }
@@ -149,6 +168,7 @@ public class Strains implements Serializable {
             if(this.buffer_numbness[i] > 0) { return false; }
         }
 
+        if(this.strain_hollowing > 0) { return false; }
         if(this.strain_deformation > 0) { return false; }
         if(this.strain_deprivation > 0) { return false; }
         if(this.strain_exhaustion > 0) { return false; }
