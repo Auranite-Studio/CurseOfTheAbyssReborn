@@ -13,7 +13,7 @@ public class AbyssSection {
 
         SPAN = builder.comment(
             "The size of the Abyss. The Abyss will always start below y = 0 and end at the negative of this value.\n"+
-            "Values: { n | n >= 64 ∧ n <= 2016 ∧ n % 16 == 0 }\n"+
+            "Values: { n | "+MINIMUM_SPAN+" <= n <= "+MAXIMUM_SPAN+" ∧ n % 16 == 0 }\n"+
             "Default: "+DEFAULT_SPAN)
             .define("SPAN", DEFAULT_SPAN, value -> value != null && (Integer) value >= MINIMUM_SPAN && (Integer) value <= MAXIMUM_SPAN && (Integer) value % 16 == 0);
         
