@@ -59,7 +59,7 @@ public class CurseCapability implements Serializable {
 
             this.derangement = Math.min(this.derangement + Abyss.distortion(field, y), 1);
             
-            if(current_depth - this.lowest_depth > 10 && this.previous_depth < current_depth) {
+            if(current_depth - this.lowest_depth > ModVariables.ABYSS.LONGING && this.previous_depth < current_depth) {
                 stress = current_depth - previous_depth;
             }
 
