@@ -131,14 +131,14 @@ public class ModEvents {
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if(event.side == LogicalSide.SERVER && event.phase.equals(TickEvent.Phase.END)) {
             event.player.getCapability(CurseProvider.CURSE).ifPresent(curse -> {
-                double strain = curse.tick(event.player);
+                curse.tick(event.player);
 
-                event.player.getFoodData().addExhaustion((float) strain);
                 if(ModList.get().isLoaded("thirst")) {
                     event.player.getCapability(ModCapabilities.PLAYER_THIRST).ifPresent(thirst -> {
-                        thirst.addExhaustion(event.player, (float) strain);
+                        thirst.addExhaustion(event.player, (float) curse.getStrains().observeExhaustion(false));
                     });
                 }
+                event.player.getFoodData().addExhaustion((float) curse.getStrains().observeExhaustion(true));
 
                 if(ModList.get().isLoaded("sanitydim")) {
                     event.player.getCapability(SanityProvider.CAP).ifPresent(sanity -> {
@@ -146,15 +146,11 @@ public class ModEvents {
                             sanity.setSanity((float) curse.getDerangement());
                         }
 
-                        if(Abyss.layer(curse.getLowestDepth()) > 2) {
-                            SanityProcessor.addSanity(sanity, (float) (strain/20.0), (ServerPlayer) event.player);
-                        }
+                        SanityProcessor.addSanity(sanity, (float) curse.getStrains().observeHallucination(true), (ServerPlayer) event.player);
                     });
                 }
 
-                if(Abyss.layer(curse.getLowestDepth()) > 3) {
-                    event.player.hurt(new DamageSource(CurseOfTheAbyss.MOD_ID+"_cursed"), (float) strain);
-                }
+                event.player.hurt(new DamageSource(CurseOfTheAbyss.MOD_ID+"_cursed"), (float) curse.getStrains().observeDeformation(true));
             });
         }
     }

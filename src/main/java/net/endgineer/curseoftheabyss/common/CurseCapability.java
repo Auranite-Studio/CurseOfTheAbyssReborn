@@ -33,6 +33,8 @@ public class CurseCapability implements Serializable {
 
     public double getDerangement() { return this.derangement; }
 
+    public Strains getStrains() { return this.strains; }
+
     public void reset() {
         this.lowest_depth = 0;
         this.previous_depth = 0;
@@ -41,7 +43,7 @@ public class CurseCapability implements Serializable {
         this.strains = new Strains();
     }
 
-    public double tick(Player player) {
+    public void tick(Player player) {
         if(this.constitution == 0) this.constitution = player.getMaxHealth();
 
         double x = player.getX(), y = player.getY(), z = player.getZ();
@@ -58,23 +60,22 @@ public class CurseCapability implements Serializable {
             this.derangement = Math.min(this.derangement + Abyss.distortion(field, y), 1);
             
             if(current_depth - this.lowest_depth > 10 && this.previous_depth < current_depth) {
-                stress = (current_depth-previous_depth)*Abyss.strain_deformation(field, this.lowest_depth);
+                stress = current_depth - previous_depth;
             }
+
             this.previous_depth = current_depth;
-        } else if(this.strains.handled() && this.lowest_depth >= Abyss.boundary(ModVariables.DEFORMATION.YIELD_LAYER)) {
+        } else if(this.strains.empty() && this.lowest_depth >= Abyss.boundary(ModVariables.DEFORMATION.YIELD_LAYER)) {
             this.lowest_depth = 0;
             this.previous_depth = 0;
         }
 
-        double strain = this.strains.tick(stress);
+        this.strains.tick(stress, this.lowest_depth, field);
 
         if(Abyss.layer(this.lowest_depth) > ModVariables.DEFORMATION.YIELD_LAYER) {
-            this.constitution = Math.max(0, this.constitution - strain);
+            this.constitution = Math.max(0, this.constitution - this.strains.observeDeformation(false));
         }
 
         sync(player, field);
-
-        return strain;
     }
 
     public void sync(Player player, double field) {
