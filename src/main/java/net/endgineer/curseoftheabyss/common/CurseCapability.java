@@ -71,9 +71,7 @@ public class CurseCapability implements Serializable {
 
         this.strains.tick(stress, current_depth, field);
 
-        if(this.strains.observeHollowing(false) > 0) {
-            this.constitution = Math.max(0, this.constitution - this.strains.observeHollowing(true));
-        }
+        this.constitution = Math.max(0, this.constitution - this.strains.observeHollowing(true));
 
         sync(player, field);
     }
