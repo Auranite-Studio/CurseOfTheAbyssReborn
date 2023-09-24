@@ -19,6 +19,10 @@ The sole purpose of this mod is to introduce the **Curse of the Abyss** from *Ma
 
 <details>
   <summary>THE STRAINS</summary>
+
+  <p align="center">
+    <img src="https://github.com/Endgineer/CurseOfTheAbyss/blob/main/.vscode/Sxy.gif?raw=true">
+  </p>
   
   The **Strains** of Ascension is the scientific name referring to the afflictions associated with the Curse of the Abyss. These Strains differ in each layer and become more severe with depth:
   - 1st Layer: Dizziness and nausea
