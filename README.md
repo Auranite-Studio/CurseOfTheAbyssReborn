@@ -4,6 +4,10 @@ The sole purpose of this mod is to introduce the **Curse of the Abyss** from *Ma
 
 <details>
   <summary>THE ABYSS</summary>
+
+  <p align="center">
+    <img src="https://github.com/Endgineer/CurseOfTheAbyss/blob/main/.vscode/Axy.png?raw=true">
+  </p>
   
   The <b>Abyss</b> is a "gargantuan vertical landscape divided into seven unique layers". In Minecraft, this ancient labyrinth is defined to be the region of the Overworld known as the Deep Underground, whose mouth begins at `y = 0` and whose depth is unknown to this day. This mysterious formation mesmerized people. Valuable and dangerous primeval creatures and mysterious relics that are beyond comprehension beckoned adventurers looking to strike it rich. Over the span of many years, with a spirit of adventure for the unknown and countless legends luring them in, the world's only remaining unexplored chasm has swallowed up a great many people. It is said...
   > To those who offer up their bodies and challenge the chasm for which even darkness is no match, the Abyss is said to provide all. Life and death, Curses and Blessings &mdash; all of it. At the end of their journey, what fate will they choose to meet? <div align="right"> &mdash; Adage of the White Whistles </div>
