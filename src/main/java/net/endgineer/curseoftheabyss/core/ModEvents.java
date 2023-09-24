@@ -21,6 +21,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.EntityViewRenderEvent.FogColors;
 import net.minecraftforge.client.event.EntityViewRenderEvent.RenderFogEvent;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
@@ -188,6 +189,14 @@ public class ModEvents {
             color.setRed((float) (1 - StrainsData.getDeprivationProgress()));
             color.setBlue((float) (1 - StrainsData.getDeprivationProgress()));
             color.setGreen((float) (1 - StrainsData.getDeprivationProgress()));
+        }
+    }
+
+    @SubscribeEvent
+    public static void onRenderGameOverlayEvent(RenderGameOverlayEvent.Pre event) {
+        Minecraft mc = Minecraft.getInstance();
+        if(StrainsData.getDeprivationProgress() == 1 && !mc.isPaused()) {
+            event.setCanceled(true);
         }
     }
 }
