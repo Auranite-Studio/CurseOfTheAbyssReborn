@@ -1,7 +1,11 @@
 package net.endgineer.curseoftheabyss.core;
 
 import java.util.Map;
+
+import com.mojang.blaze3d.shaders.FogShape;
+
 import net.endgineer.curseoftheabyss.CurseOfTheAbyss;
+import net.endgineer.curseoftheabyss.client.StrainsData;
 import net.endgineer.curseoftheabyss.common.Abyss;
 import net.endgineer.curseoftheabyss.common.CurseCapability;
 import net.endgineer.curseoftheabyss.common.CurseProvider;
@@ -11,11 +15,15 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
+import net.minecraftforge.client.event.EntityViewRenderEvent.FogColors;
+import net.minecraftforge.client.event.EntityViewRenderEvent.RenderFogEvent;
+import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.ServerChatEvent;
@@ -151,7 +159,35 @@ public class ModEvents {
                 }
 
                 event.player.hurt(new DamageSource(CurseOfTheAbyss.MOD_ID+"_cursed"), (float) curse.getStrains().observeDeformation(true));
+                
+                curse.getStrains().observeDeprivation(true);
             });
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPlaySound(PlaySoundEvent event) {
+        if(StrainsData.getDeprivationProgress() == 1 && event.getSound().getSource() != SoundSource.MASTER) {
+            event.setSound(null);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onRenderFog(RenderFogEvent event) {
+        if(StrainsData.getDeprivationProgress() > 0) {
+            event.setCanceled(true);
+            event.setFogShape(FogShape.SPHERE);
+            event.scaleNearPlaneDistance((float) (1 - StrainsData.getDeprivationProgress()));
+            event.scaleFarPlaneDistance((float) (1 - StrainsData.getDeprivationProgress()));
+        }
+    }
+
+    @SubscribeEvent
+    public static void onFogColor(FogColors color) {
+        if(StrainsData.getDeprivationProgress() > 0) {
+            color.setRed((float) (1 - StrainsData.getDeprivationProgress()));
+            color.setBlue((float) (1 - StrainsData.getDeprivationProgress()));
+            color.setGreen((float) (1 - StrainsData.getDeprivationProgress()));
         }
     }
 }

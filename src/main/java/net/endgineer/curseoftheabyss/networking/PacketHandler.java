@@ -18,5 +18,6 @@ public class PacketHandler {
     public static void init()
     {
         INSTANCE.registerMessage(0, CursePacket.class, CursePacket::encode, CursePacket::decode, CursePacket::handle);
+        INSTANCE.registerMessage(0, StrainsPacket.class, StrainsPacket::encode, StrainsPacket::decode, StrainsPacket::handle);
     }
 }

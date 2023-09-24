@@ -74,6 +74,7 @@ public class CurseCapability implements Serializable {
         this.constitution = Math.max(0, this.constitution - this.strains.observeHollowing(true));
 
         sync(player, field);
+        this.strains.sync(player);
     }
 
     public void sync(Player player, double field) {

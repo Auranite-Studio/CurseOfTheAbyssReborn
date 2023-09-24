@@ -3,6 +3,11 @@ package net.endgineer.curseoftheabyss.common;
 import java.io.Serializable;
 
 import net.endgineer.curseoftheabyss.config.variables.ModVariables;
+import net.endgineer.curseoftheabyss.networking.PacketHandler;
+import net.endgineer.curseoftheabyss.networking.StrainsPacket;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.network.PacketDistributor;
 
 public class Strains implements Serializable {
     private static double[] log_normal_distribution = {
@@ -42,6 +47,8 @@ public class Strains implements Serializable {
     private double stress;
     private int buffer_tick;
     private int stress_tick;
+
+    private double progress_deprivation;
 
     public Strains() {
         this.strain_hollowing = 0;
@@ -154,7 +161,13 @@ public class Strains implements Serializable {
             this.buffer_numbness[buffer_second] = 0;
         }
 
+        this.progress_deprivation = this.strain_deprivation > 0 ? Math.min(this.progress_deprivation + 0.05, 1) : Math.max(0, this.progress_deprivation - 0.05);
+
         this.buffer_tick = ++this.buffer_tick % 200;
+    }
+
+    public void sync(Player player) {
+        PacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) player), new StrainsPacket(this.progress_deprivation));
     }
 
     public boolean empty() {
