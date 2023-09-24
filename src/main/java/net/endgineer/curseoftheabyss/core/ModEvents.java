@@ -195,8 +195,10 @@ public class ModEvents {
     @SubscribeEvent
     public static void onRenderGameOverlayEvent(RenderGameOverlayEvent.Pre event) {
         Minecraft mc = Minecraft.getInstance();
-        if(StrainsData.getDeprivationProgress() == 1 && !mc.isPaused()) {
-            event.setCanceled(true);
+        if(!mc.isPaused()) {
+            if(StrainsData.getDeprivationProgress() == 1) {
+                event.setCanceled(true);
+            }
         }
     }
 }
