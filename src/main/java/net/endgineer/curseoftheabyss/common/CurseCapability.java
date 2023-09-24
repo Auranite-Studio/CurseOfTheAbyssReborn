@@ -10,7 +10,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraft.server.level.ServerPlayer;
 import net.endgineer.curseoftheabyss.config.variables.ModVariables;
-import net.endgineer.curseoftheabyss.networking.Packet;
+import net.endgineer.curseoftheabyss.networking.CursePacket;
 import net.endgineer.curseoftheabyss.networking.PacketHandler;
 import net.minecraft.nbt.CompoundTag;
 
