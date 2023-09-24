@@ -77,7 +77,7 @@ public class CurseCapability implements Serializable {
     }
 
     public void sync(Player player, double field) {
-        PacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) player), new Packet(field));
+        PacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) player), new CursePacket(field));
     }
 
     public void save(CompoundTag data) {

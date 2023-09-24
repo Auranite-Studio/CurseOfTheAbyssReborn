@@ -8,22 +8,22 @@ import java.util.function.Supplier;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.api.distmarker.Dist;
 
-public class Packet {
+public class CursePacket {
     public double field;
 
-    public Packet(double field) {
+    public CursePacket(double field) {
         this.field = field;
     }
 
-    public static void encode(Packet message, FriendlyByteBuf buffer) {
+    public static void encode(CursePacket message, FriendlyByteBuf buffer) {
         buffer.writeDouble(message.field);
     }
 
-    public static Packet decode(FriendlyByteBuf buffer) {
-        return new Packet(buffer.readDouble());
+    public static CursePacket decode(FriendlyByteBuf buffer) {
+        return new CursePacket(buffer.readDouble());
     }
 
-    public static void handle(Packet message, Supplier<NetworkEvent.Context> supplier) {
+    public static void handle(CursePacket message, Supplier<NetworkEvent.Context> supplier) {
         NetworkEvent.Context context = supplier.get();
 
         if (context.getDirection().getReceptionSide().isClient()) {
