@@ -6,7 +6,7 @@ The sole purpose of this mod is to introduce the **Curse of the Abyss** from *Ma
   <summary>THE ABYSS</summary>
 
   <p align="center">
-    <img src="https://github.com/Endgineer/CurseOfTheAbyss/blob/main/.vscode/Axy.png?raw=true">
+    <img src="https://github.com/Endgineer/CurseOfTheAbyss/blob/main/.vscode/Axy.png?raw=true" height="50%" width="50%">
   </p>
   
   The <b>Abyss</b> is a "gargantuan vertical landscape divided into seven unique layers". In Minecraft, this ancient labyrinth is defined to be the region of the Overworld known as the Deep Underground, whose mouth begins at `y = 0` and whose depth is unknown to this day. This mysterious formation mesmerized people. Valuable and dangerous primeval creatures and mysterious relics that are beyond comprehension beckoned adventurers looking to strike it rich. Over the span of many years, with a spirit of adventure for the unknown and countless legends luring them in, the world's only remaining unexplored chasm has swallowed up a great many people. It is said...
@@ -19,7 +19,7 @@ The sole purpose of this mod is to introduce the **Curse of the Abyss** from *Ma
   <summary>THE FIELD</summary>
 
   <p align="center">
-    <img src="https://github.com/Endgineer/CurseOfTheAbyss/blob/main/.vscode/Fxy.gif?raw=true">
+    <img src="https://github.com/Endgineer/CurseOfTheAbyss/blob/main/.vscode/Fxy.gif?raw=true" height="25%" width="25%">
   </p>
   
   The Abyss is permeated by a mysterious **Field**, described as the "very blood of the Abyss", that seems responsible for or correlated with many of the eldritch phenomena surrounding the Abyss. Though this Field is everyflowing, everchanging, and everpresent, its concentration and effectiveness seems to be stronger with depth. The Field seems to be responsible for causing the Curse of the Abyss, a set of afflictions that seem to grow more severe with depth. The Curse of the Abyss does not seem to affect delvers who are descending into the Abyss, but those who are attempting to ascend out of it. In a sense, the Field can be visualized as a stack of thin sheets layered on top of each other. When descending, a delver passes safely through the sheets. When ascending, the sheets stretch around the delver. After a certain distance ascended, when a certain maximum number of sheets are stretched around the delver, further ascension pierces the old bottom-most sheet as the new top-most sheet is stretched around the delver, causing the delver to be hit by the afflictions. These afflictions, known as the Strains of Ascension, imply that the deeper one delves into the Abyss, the more difficult it will be to ever return. But in addition to these afflictions, delvers suffer passive afflictions from spending time within the Abyss, as their minds and bodies are literally warped by it, eventually being consumed.
