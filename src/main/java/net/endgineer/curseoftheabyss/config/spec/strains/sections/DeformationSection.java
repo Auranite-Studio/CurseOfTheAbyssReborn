@@ -1,17 +1,13 @@
 package net.endgineer.curseoftheabyss.config.spec.strains.sections;
 
 import net.minecraftforge.common.ForgeConfigSpec;
+import java.util.regex.Pattern;
 
 public class DeformationSection {
-    public final int DEFAULT_DEFIANCE_LAYER = 3;
-    public final int MINIMUM_DEFIANCE_LAYER = 1;
-    public final int MAXIMUM_DEFIANCE_LAYER = 7;
-    public final ForgeConfigSpec.ConfigValue<Integer> DEFIANCE_LAYER;
-
-    public final int DEFAULT_YIELD_LAYER = 5;
-    public final int MINIMUM_YIELD_LAYER = 1;
-    public final int MAXIMUM_YIELD_LAYER = 7;
-    public final ForgeConfigSpec.ConfigValue<Integer> YIELD_LAYER;
+    public final String DEFAULT_BOUNDARY_LAYERS = "[3, 5]";
+    public final int MINIMUM_BOUNDARY_LAYER = 0;
+    public final int MAXIMUM_BOUNDARY_LAYER = 7;
+    public final ForgeConfigSpec.ConfigValue<String> BOUNDARY_LAYERS;
 
     public final double DEFAULT_ELASTICITY_MODULUS = 0.07936;
     public final double MINIMUM_ELASTICITY_MODULUS = 0;
@@ -24,17 +20,11 @@ public class DeformationSection {
     public DeformationSection(ForgeConfigSpec.Builder builder) {
         builder.push("DEFORMATION");
 
-        DEFIANCE_LAYER = builder.comment(
-            "The layer at the bottom of which the Curse of the Abyss begins to result in bodily harm. Beyond that boundary, linear strains begin.\n"+
-            "Values: [ "+MINIMUM_DEFIANCE_LAYER+", "+MAXIMUM_DEFIANCE_LAYER+" ]\n"+
-            "Default: "+DEFAULT_DEFIANCE_LAYER)
-            .define("DEFIANCE_LAYER", DEFAULT_DEFIANCE_LAYER, value -> value != null && (Integer) value >= MINIMUM_DEFIANCE_LAYER && (Integer) value <= MAXIMUM_DEFIANCE_LAYER);
-
-        YIELD_LAYER = builder.comment(
-            "The layer at the bottom of which lies the Absolute Boundary of the Abyss. Beyond that boundary, strains become exponential and permanently deform the player.\n"+
-            "Values: [ "+MINIMUM_YIELD_LAYER+", "+MAXIMUM_YIELD_LAYER+" ]\n"+
-            "Default: "+DEFAULT_YIELD_LAYER)
-            .define("YIELD_LAYER", DEFAULT_YIELD_LAYER, value -> value != null && (Integer) value >= MINIMUM_YIELD_LAYER && (Integer) value <= MAXIMUM_YIELD_LAYER);
+        BOUNDARY_LAYERS = builder.comment(
+            "Layers that mark important boundaries of the Abyss. The first marks the point beyond which the curse results in bodily harm. The second marks the Absolute Boundary beyond which the curse results in loss of humanity.\n"+
+            "Values: {\"[m, M]\" | "+MINIMUM_BOUNDARY_LAYER+" <= m < M <= "+MAXIMUM_BOUNDARY_LAYER+"}\n"+
+            "Default: "+DEFAULT_BOUNDARY_LAYERS)
+            .define("BOUNDARY_LAYERS", DEFAULT_BOUNDARY_LAYERS, value -> value != null && Pattern.matches("\\[\\s*["+MINIMUM_BOUNDARY_LAYER+"-"+MAXIMUM_BOUNDARY_LAYER+"],\\s*["+MINIMUM_BOUNDARY_LAYER+"-"+MAXIMUM_BOUNDARY_LAYER+"]\\s*\\]", (String) value) && Integer.parseInt(((String) value).replaceAll("\\s|\\[|\\]", "").split(",")[0]) >= MINIMUM_BOUNDARY_LAYER && Integer.parseInt(((String) value).replaceAll("\\s|\\[|\\]", "").split(",")[1]) >= MAXIMUM_BOUNDARY_LAYER && Integer.parseInt(((String) value).replaceAll("\\s|\\[|\\]", "").split(",")[0]) < Integer.parseInt(((String) value).replaceAll("\\s|\\[|\\]", "").split(",")[1]));
 
         ELASTICITY_MODULUS = builder.comment(
             "The player's resistance to the linear portion of the curse. The smaller this value, the more damage the player takes from the curse.\n"+

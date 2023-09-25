@@ -48,7 +48,7 @@ public class Abyss extends SavedData {
     }
 
     public static double strain_deformation(double field, double y) {
-        return Abyss.layer(y) <= ModVariables.DEFORMATION.DEFIANCE_LAYER ? 0 : field * (- (y - Abyss.boundary(ModVariables.DEFORMATION.DEFIANCE_LAYER)) / (ModVariables.DEFORMATION.ELASTICITY_MODULUS * ModVariables.ABYSS.SPAN) + Math.pow((y - Abyss.boundary(ModVariables.DEFORMATION.DEFIANCE_LAYER)) / Abyss.boundary(ModVariables.DEFORMATION.YIELD_LAYER), 1 / ModVariables.DEFORMATION.STRAIN_HARDENING_COEFFICIENT));
+        return Abyss.layer(y) <= ModVariables.DEFORMATION.DEFIANCE_LAYER ? 0 : field * (- (y - Abyss.boundary(ModVariables.DEFORMATION.DEFIANCE_LAYER)) / (ModVariables.DEFORMATION.ELASTICITY_MODULUS * ModVariables.ABYSS.SPAN) + Math.pow((y - Abyss.boundary(ModVariables.DEFORMATION.DEFIANCE_LAYER)) / Abyss.boundary(ModVariables.DEFORMATION.YIELD_LAYER - ModVariables.DEFORMATION.DEFIANCE_LAYER), 1 / ModVariables.DEFORMATION.STRAIN_HARDENING_COEFFICIENT));
     }
 
     public static double strain_deprivation(double field, double y) {
