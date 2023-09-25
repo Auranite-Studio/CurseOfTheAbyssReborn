@@ -64,7 +64,7 @@ public class ModEvents {
         if(livingEntity instanceof Player) {
             Player player = ((Player) livingEntity);
             
-            if(player.level.dimension().location().getPath() == "overworld" && Abyss.layer(player.getY()) >= ModCommonConfig.CUSTOM.FINALITY.LAYER.get()) {
+            if(player.level.dimension().location().getPath() == "overworld" && Abyss.layer(player.getY()) > ModCommonConfig.CUSTOM.FINALITY.LAYER.get()) {
                 player.getInventory().clearContent();
                 
                 if(ModList.get().isLoaded("curios")) {
