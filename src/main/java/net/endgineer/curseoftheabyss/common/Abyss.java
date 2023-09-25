@@ -47,28 +47,28 @@ public class Abyss extends SavedData {
         return field * ModVariables.DISTORTION.LAYER[Abyss.layer(y)];
     }
 
-    public static double strain_deformation(double field, double y_lowest) {
-        return Abyss.layer(y_lowest) <= ModVariables.DEFORMATION.DEFIANCE_LAYER ? 0 : field * (- (y_lowest - Abyss.boundary(ModVariables.DEFORMATION.DEFIANCE_LAYER)) / (ModVariables.DEFORMATION.ELASTICITY_MODULUS * ModVariables.ABYSS.SPAN) + Math.pow((y_lowest - Abyss.boundary(ModVariables.DEFORMATION.DEFIANCE_LAYER)) / Abyss.boundary(ModVariables.DEFORMATION.YIELD_LAYER), 1 / ModVariables.DEFORMATION.STRAIN_HARDENING_COEFFICIENT));
+    public static double strain_deformation(double field, double y) {
+        return Abyss.layer(y) <= ModVariables.DEFORMATION.DEFIANCE_LAYER ? 0 : field * (- (y - Abyss.boundary(ModVariables.DEFORMATION.DEFIANCE_LAYER)) / (ModVariables.DEFORMATION.ELASTICITY_MODULUS * ModVariables.ABYSS.SPAN) + Math.pow((y - Abyss.boundary(ModVariables.DEFORMATION.DEFIANCE_LAYER)) / Abyss.boundary(ModVariables.DEFORMATION.YIELD_LAYER), 1 / ModVariables.DEFORMATION.STRAIN_HARDENING_COEFFICIENT));
     }
 
-    public static double strain_deprivation(double field, double y_lowest) {
-        return field * ((-y_lowest % -Abyss.boundary(1)) / (-Abyss.boundary(1)) * (ModVariables.DEPRIVATION.LAYER[Abyss.layer(y_lowest)][1] - ModVariables.DEPRIVATION.LAYER[Abyss.layer(y_lowest)][0]) + ModVariables.DEPRIVATION.LAYER[Abyss.layer(y_lowest)][0]);
+    public static double strain_deprivation(double field, double y) {
+        return field * ((-y % -Abyss.boundary(1)) / (-Abyss.boundary(1)) * (ModVariables.DEPRIVATION.LAYER[Abyss.layer(y)][1] - ModVariables.DEPRIVATION.LAYER[Abyss.layer(y)][0]) + ModVariables.DEPRIVATION.LAYER[Abyss.layer(y)][0]);
     }
 
-    public static double strain_hallucination(double field, double y_lowest) {
-        return field * ((-y_lowest % -Abyss.boundary(1)) / (-Abyss.boundary(1)) * (ModVariables.HALLUCINATION.LAYER[Abyss.layer(y_lowest)][1] - ModVariables.HALLUCINATION.LAYER[Abyss.layer(y_lowest)][0]) + ModVariables.HALLUCINATION.LAYER[Abyss.layer(y_lowest)][0]);
+    public static double strain_hallucination(double field, double y) {
+        return field * ((-y % -Abyss.boundary(1)) / (-Abyss.boundary(1)) * (ModVariables.HALLUCINATION.LAYER[Abyss.layer(y)][1] - ModVariables.HALLUCINATION.LAYER[Abyss.layer(y)][0]) + ModVariables.HALLUCINATION.LAYER[Abyss.layer(y)][0]);
     }
 
-    public static double strain_numbness(double field, double y_lowest) {
-        return field * ((-y_lowest % -Abyss.boundary(1)) / (-Abyss.boundary(1)) * (ModVariables.NUMBNESS.LAYER[Abyss.layer(y_lowest)][1] - ModVariables.NUMBNESS.LAYER[Abyss.layer(y_lowest)][0]) + ModVariables.NUMBNESS.LAYER[Abyss.layer(y_lowest)][0]);
+    public static double strain_numbness(double field, double y) {
+        return field * ((-y % -Abyss.boundary(1)) / (-Abyss.boundary(1)) * (ModVariables.NUMBNESS.LAYER[Abyss.layer(y)][1] - ModVariables.NUMBNESS.LAYER[Abyss.layer(y)][0]) + ModVariables.NUMBNESS.LAYER[Abyss.layer(y)][0]);
     }
 
-    public static double strain_exhaustion(double field, double y_lowest) {
-        return field * ((-y_lowest % -Abyss.boundary(1)) / (-Abyss.boundary(1)) * (ModVariables.EXHAUSTION.LAYER[Abyss.layer(y_lowest)][1] - ModVariables.EXHAUSTION.LAYER[Abyss.layer(y_lowest)][0]) + ModVariables.EXHAUSTION.LAYER[Abyss.layer(y_lowest)][0]);
+    public static double strain_exhaustion(double field, double y) {
+        return field * ((-y % -Abyss.boundary(1)) / (-Abyss.boundary(1)) * (ModVariables.EXHAUSTION.LAYER[Abyss.layer(y)][1] - ModVariables.EXHAUSTION.LAYER[Abyss.layer(y)][0]) + ModVariables.EXHAUSTION.LAYER[Abyss.layer(y)][0]);
     }
 
-    public static double strain_nausea(double field, double y_lowest) {
-        return field * ((-y_lowest % -Abyss.boundary(1)) / (-Abyss.boundary(1)) * (ModVariables.NAUSEA.LAYER[Abyss.layer(y_lowest)][1] - ModVariables.NAUSEA.LAYER[Abyss.layer(y_lowest)][0]) + ModVariables.NAUSEA.LAYER[Abyss.layer(y_lowest)][0]);
+    public static double strain_nausea(double field, double y) {
+        return field * ((-y % -Abyss.boundary(1)) / (-Abyss.boundary(1)) * (ModVariables.NAUSEA.LAYER[Abyss.layer(y)][1] - ModVariables.NAUSEA.LAYER[Abyss.layer(y)][0]) + ModVariables.NAUSEA.LAYER[Abyss.layer(y)][0]);
     }
 
     public static double loss(double sender_y, double receiver_y) {
