@@ -7,7 +7,6 @@ import net.endgineer.curseoftheabyss.config.variables.strains.DeformationVariabl
 import net.endgineer.curseoftheabyss.config.variables.strains.DeprivationVariables;
 import net.endgineer.curseoftheabyss.config.variables.strains.ExhaustionVariables;
 import net.endgineer.curseoftheabyss.config.variables.strains.HallucinationVariables;
-import net.endgineer.curseoftheabyss.config.variables.strains.NauseaVariables;
 import net.endgineer.curseoftheabyss.config.variables.strains.NumbnessVariables;
 
 public class ModVariables {
@@ -19,6 +18,5 @@ public class ModVariables {
     public static DeprivationVariables DEPRIVATION = new DeprivationVariables();
     public static ExhaustionVariables EXHAUSTION = new ExhaustionVariables();
     public static HallucinationVariables HALLUCINATION = new HallucinationVariables();
-    public static NauseaVariables NAUSEA = new NauseaVariables();
     public static NumbnessVariables NUMBNESS = new NumbnessVariables();
 }

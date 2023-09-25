@@ -5,7 +5,6 @@ import net.endgineer.curseoftheabyss.config.spec.strains.sections.DeprivationSec
 import net.endgineer.curseoftheabyss.config.spec.strains.sections.HallucinationSection;
 import net.endgineer.curseoftheabyss.config.spec.strains.sections.NumbnessSection;
 import net.endgineer.curseoftheabyss.config.spec.strains.sections.ExhaustionSection;
-import net.endgineer.curseoftheabyss.config.spec.strains.sections.NauseaSection;
 import net.minecraftforge.common.ForgeConfigSpec;
 
 public class StrainsSectionHandler {
@@ -14,7 +13,6 @@ public class StrainsSectionHandler {
     public final HallucinationSection HALLUCINATION;
     public final NumbnessSection NUMBNESS;
     public final ExhaustionSection EXHAUSTION;
-    public final NauseaSection NAUSEA;
 
     public StrainsSectionHandler(ForgeConfigSpec.Builder builder) {
         builder.push("STRAINS");
@@ -24,7 +22,6 @@ public class StrainsSectionHandler {
         HALLUCINATION = new HallucinationSection(builder);
         NUMBNESS = new NumbnessSection(builder);
         EXHAUSTION = new ExhaustionSection(builder);
-        NAUSEA = new NauseaSection(builder);
 
         builder.pop();
     }

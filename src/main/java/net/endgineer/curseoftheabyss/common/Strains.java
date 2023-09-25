@@ -38,9 +38,6 @@ public class Strains implements Serializable {
     private double strain_hallucination;
     private double[] buffer_hallucination;
 
-    private double strain_nausea;
-    private double[] buffer_nausea;
-
     private double strain_numbness;
     private double[] buffer_numbness;
 
@@ -48,7 +45,11 @@ public class Strains implements Serializable {
     private int buffer_tick;
     private int stress_tick;
 
-    private int progress_deprivation;
+    private double progress_deprivation;
+
+    private double progress_numbness;
+    private int target_numbness_width;
+    private int trailing_numbness_width;
 
     public Strains() {
         this.strain_hollowing = 0;
@@ -65,9 +66,6 @@ public class Strains implements Serializable {
 
         this.strain_hallucination = 0;
         this.buffer_hallucination = new double[10];
-
-        this.strain_nausea = 0;
-        this.buffer_nausea = new double[10];
 
         this.strain_numbness = 0;
         this.buffer_numbness = new double[10];
@@ -107,12 +105,6 @@ public class Strains implements Serializable {
         return temp;
     }
 
-    public double observeNausea(boolean alter) {
-        double temp = this.strain_nausea;
-        if(alter) { this.strain_nausea -= Math.min(this.strain_nausea, 0.05); }
-        return temp;
-    }
-
     public double observeNumbness(boolean alter) {
         double temp = this.strain_numbness;
         if(alter) { this.strain_numbness -= Math.min(this.strain_numbness, 0.05); }
@@ -136,7 +128,6 @@ public class Strains implements Serializable {
                 this.buffer_deprivation[buffer_step] += convolved_stress * Abyss.strain_deprivation(field, depth);
                 this.buffer_exhaustion[buffer_step] += convolved_stress * Abyss.strain_exhaustion(field, depth);
                 this.buffer_hallucination[buffer_step] += convolved_stress * Abyss.strain_hallucination(field, depth);
-                this.buffer_nausea[buffer_step] += convolved_stress * Abyss.strain_nausea(field, depth);
                 this.buffer_numbness[buffer_step] += convolved_stress * Abyss.strain_numbness(field, depth);
             }
 
@@ -155,19 +146,19 @@ public class Strains implements Serializable {
             this.buffer_exhaustion[buffer_second] = 0;
             this.strain_hallucination += this.buffer_hallucination[buffer_second];
             this.buffer_hallucination[buffer_second] = 0;
-            this.strain_nausea += this.buffer_nausea[buffer_second];
-            this.buffer_nausea[buffer_second] = 0;
             this.strain_numbness += this.buffer_numbness[buffer_second];
             this.buffer_numbness[buffer_second] = 0;
         }
 
-        this.progress_deprivation = this.strain_deprivation > 0 ? Math.min(this.progress_deprivation + 1, 20) : Math.max(0, this.progress_deprivation - 1);
+        if(this.strain_numbness > 0) { if(Math.random() < 0.01) { this.target_numbness_width++; } if(this.progress_numbness == this.target_numbness_width) { this.trailing_numbness_width = 0; this.target_numbness_width = 0; this.progress_numbness = 0; } else if(this.target_numbness_width > 0) { this.progress_numbness = Math.min(this.progress_numbness + 0.05, this.target_numbness_width); } }
+
+        this.progress_deprivation = this.strain_deprivation > 0 ? Math.min(this.progress_deprivation + 0.05, 1) : Math.max(0, this.progress_deprivation - 0.05);
 
         this.buffer_tick = ++this.buffer_tick % 200;
     }
 
     public void sync(Player player) {
-        PacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) player), new StrainsPacket(this.progress_deprivation));
+        PacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) player), new StrainsPacket(this.numbness_signal(), this.progress_deprivation));
     }
 
     public boolean empty() {
@@ -177,7 +168,6 @@ public class Strains implements Serializable {
             if(this.buffer_deprivation[i] > 0) { return false; }
             if(this.buffer_exhaustion[i] > 0) { return false; }
             if(this.buffer_hallucination[i] > 0) { return false; }
-            if(this.buffer_nausea[i] > 0) { return false; }
             if(this.buffer_numbness[i] > 0) { return false; }
         }
 
@@ -186,9 +176,17 @@ public class Strains implements Serializable {
         if(this.strain_deprivation > 0) { return false; }
         if(this.strain_exhaustion > 0) { return false; }
         if(this.strain_hallucination > 0) { return false; }
-        if(this.strain_nausea > 0) { return false; }
         if(this.strain_numbness > 0) { return false; }
 
+        if(this.progress_deprivation > 0) { return false; }
+        if(this.numbness_signal() > 0) { return false; }
+
         return true;
+    }
+
+    private double numbness_signal() {
+        if(this.target_numbness_width == 0 || this.progress_numbness < 0 || this.progress_numbness > this.target_numbness_width) { return 0; }
+        else if(this.trailing_numbness_width-this.progress_numbness <= 0.5 && this.target_numbness_width > this.trailing_numbness_width) { if(this.progress_numbness < 0.5) { return 2*this.progress_numbness; } else { this.trailing_numbness_width = this.target_numbness_width; } }
+        return this.progress_numbness <= 0.5 ? 2*this.progress_numbness : this.progress_numbness <= 0.5+this.target_numbness_width-1 ? 1 : 2*(this.target_numbness_width-this.progress_numbness);
     }
 }

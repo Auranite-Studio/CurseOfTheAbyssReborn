@@ -11,6 +11,8 @@ import net.endgineer.curseoftheabyss.common.CurseCapability;
 import net.endgineer.curseoftheabyss.common.CurseProvider;
 import net.endgineer.curseoftheabyss.config.spec.ModCommonConfig;
 import net.endgineer.curseoftheabyss.config.variables.ModVariables;
+import net.endgineer.curseoftheabyss.helpers.creativemd.enhancedvisuals.client.VisualManager;
+import net.endgineer.curseoftheabyss.helpers.creativemd.enhancedvisuals.client.render.EVRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
@@ -29,6 +31,7 @@ import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.ServerChatEvent;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.TickEvent.RenderTickEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -149,6 +152,8 @@ public class ModEvents {
                 }
                 event.player.getFoodData().addExhaustion((float) curse.getStrains().observeExhaustion(true));
 
+                curse.getStrains().observeNumbness(true);
+
                 if(ModList.get().isLoaded("sanitydim")) {
                     event.player.getCapability(SanityProvider.CAP).ifPresent(sanity -> {
                         if(curse.getDerangement() > sanity.getSanity()) {
@@ -163,6 +168,13 @@ public class ModEvents {
                 
                 curse.getStrains().observeDeprivation(true);
             });
+        }
+    }
+
+    @SubscribeEvent
+    public static void onRenderTick(RenderTickEvent event) {
+        if (event.phase.equals(TickEvent.Phase.END)) {
+            EVRenderer.render();
         }
     }
 
@@ -200,5 +212,7 @@ public class ModEvents {
                 event.setCanceled(true);
             }
         }
+
+        VisualManager.onTick(mc.player);
     }
 }

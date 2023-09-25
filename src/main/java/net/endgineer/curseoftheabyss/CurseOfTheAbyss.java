@@ -3,6 +3,7 @@ package net.endgineer.curseoftheabyss;
 import net.endgineer.curseoftheabyss.config.spec.ModCommonConfig;
 import net.endgineer.curseoftheabyss.core.ModItems;
 import net.endgineer.curseoftheabyss.core.ModOverlays;
+import net.endgineer.curseoftheabyss.helpers.creativemd.enhancedvisuals.common.addon.curseoftheabyss.CurseOfTheAbyssShaders;
 import net.endgineer.curseoftheabyss.networking.PacketHandler;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -50,6 +51,7 @@ public class CurseOfTheAbyss {
     public void onCommonSetup(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             PacketHandler.init();
+            CurseOfTheAbyssShaders.load();
         });
     }
 }

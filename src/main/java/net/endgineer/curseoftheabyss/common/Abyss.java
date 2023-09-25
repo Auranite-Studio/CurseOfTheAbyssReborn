@@ -67,10 +67,6 @@ public class Abyss extends SavedData {
         return field * ((-y % -Abyss.boundary(1)) / (-Abyss.boundary(1)) * (ModVariables.EXHAUSTION.LAYER[Abyss.layer(y)][1] - ModVariables.EXHAUSTION.LAYER[Abyss.layer(y)][0]) + ModVariables.EXHAUSTION.LAYER[Abyss.layer(y)][0]);
     }
 
-    public static double strain_nausea(double field, double y) {
-        return field * ((-y % -Abyss.boundary(1)) / (-Abyss.boundary(1)) * (ModVariables.NAUSEA.LAYER[Abyss.layer(y)][1] - ModVariables.NAUSEA.LAYER[Abyss.layer(y)][0]) + ModVariables.NAUSEA.LAYER[Abyss.layer(y)][0]);
-    }
-
     public static double loss(double sender_y, double receiver_y) {
         double integrity = 1;
 
