@@ -41,7 +41,7 @@ The sole purpose of this mod is to introduce the **Curse of the Abyss** from *Ma
   - 6th Layer: Loss of humanity (unregenerable damage over time)
   - 7th Layer: Certain and immediate death (instant death)
   
-  At the bottom of the 5th Layer is what is known as the Absolute Boundary of the Abyss, beyond which lies the 6th Layer, known as the Capital of the Unreturned. Delvers descending beyond the Absolute Boundary are said to have made their "last dive" and considered lost forever, as ascending from within the 6th Layer results in a loss of humanity- plastic deformation, an exponential irrepairable/permanent damage.
+  At the bottom of the 5th Layer is what is known as the Absolute Boundary of the Abyss, beyond which lies the 6th Layer- the Capital of the Unreturned. Delvers descending beyond the Absolute Boundary are said to have made their "last dive" and considered lost forever, as ascending from within the 6th Layer results in the loss of one's humanity.
 </details>
 
 # Recommendations / Integration / Configuration
