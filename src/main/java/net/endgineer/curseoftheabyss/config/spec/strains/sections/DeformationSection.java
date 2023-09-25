@@ -23,7 +23,7 @@ public class DeformationSection {
         BOUNDARY_LAYERS = builder.comment(
             "Layers that mark important boundaries of the Abyss. The first marks the point beyond which the curse results in bodily harm. The second marks the Absolute Boundary beyond which the curse results in loss of humanity.\n"+
             "Values: {\"[m, M]\" | "+MINIMUM_BOUNDARY_LAYER+" <= m < M <= "+MAXIMUM_BOUNDARY_LAYER+"}\n"+
-            "Default: "+DEFAULT_BOUNDARY_LAYERS)
+            "Default: \""+DEFAULT_BOUNDARY_LAYERS+"\"")
             .define("BOUNDARY_LAYERS", DEFAULT_BOUNDARY_LAYERS, value -> value != null && Pattern.matches("\\[\\s*["+MINIMUM_BOUNDARY_LAYER+"-"+MAXIMUM_BOUNDARY_LAYER+"],\\s*["+MINIMUM_BOUNDARY_LAYER+"-"+MAXIMUM_BOUNDARY_LAYER+"]\\s*\\]", (String) value) && Integer.parseInt(((String) value).replaceAll("\\s|\\[|\\]", "").split(",")[0]) >= MINIMUM_BOUNDARY_LAYER && Integer.parseInt(((String) value).replaceAll("\\s|\\[|\\]", "").split(",")[1]) >= MAXIMUM_BOUNDARY_LAYER && Integer.parseInt(((String) value).replaceAll("\\s|\\[|\\]", "").split(",")[0]) < Integer.parseInt(((String) value).replaceAll("\\s|\\[|\\]", "").split(",")[1]));
 
         ELASTICITY_MODULUS = builder.comment(
