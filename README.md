@@ -32,14 +32,14 @@ The sole purpose of this mod is to introduce the **Curse of the Abyss** from *Ma
     <img src="https://github.com/Endgineer/CurseOfTheAbyss/blob/main/.vscode/Sxy.gif?raw=true">
   </p>
   
-  The **Strains** of Ascension is the scientific name referring to the afflictions associated with the Curse of the Abyss. These Strains differ in each layer and become more severe with depth:
-  - 1st Layer: Dizziness and nausea
-  - 2nd Layer: Numbness and headaches
-  - 3rd Layer: Hallucinations and vertigo
-  - 4th Layer: Bleeding and pains (elastic deformation begins)
-  - 5th Layer: Loss of all senses
-  - 6th Layer: Loss of humanity (plastic deformation begins)
-  - 7th Layer: Certain and immediate death
+  The **Strains** of Ascension is the scientific name referring to the afflictions associated with the Curse of the Abyss. These Strains, shown below along with their Minecraft equivalents, differ in each layer and become more severe with depth:
+  - 1st Layer: Dizziness and nausea (exhaustion of hunger and thirst)
+  - 2nd Layer: Numbness and headaches (throbbing blur effect)
+  - 3rd Layer: Hallucinations and vertigo (sanity loss)
+  - 4th Layer: Bleeding and pains (regenerable damage over time)
+  - 5th Layer: Loss of all senses (complete blindness and deafness)
+  - 6th Layer: Loss of humanity (unregenerable damage over time)
+  - 7th Layer: Certain and immediate death (instant death)
   
   At the bottom of the 5th Layer is what is known as the Absolute Boundary of the Abyss, beyond which lies the 6th Layer, known as the Capital of the Unreturned. Delvers descending beyond the Absolute Boundary are said to have made their "last dive" and considered lost forever, as ascending from within the 6th Layer results in a loss of humanity- plastic deformation, an exponential irrepairable/permanent damage.
 </details>
