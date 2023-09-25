@@ -48,7 +48,7 @@ public class Strains implements Serializable {
     private int buffer_tick;
     private int stress_tick;
 
-    private double progress_deprivation;
+    private int progress_deprivation;
 
     public Strains() {
         this.strain_hollowing = 0;
@@ -161,7 +161,7 @@ public class Strains implements Serializable {
             this.buffer_numbness[buffer_second] = 0;
         }
 
-        this.progress_deprivation = this.strain_deprivation > 0 ? Math.min(this.progress_deprivation + 0.05, 1) : Math.max(0, this.progress_deprivation - 0.05);
+        this.progress_deprivation = this.strain_deprivation > 0 ? Math.min(this.progress_deprivation + 1, 20) : Math.max(0, this.progress_deprivation - 1);
 
         this.buffer_tick = ++this.buffer_tick % 200;
     }

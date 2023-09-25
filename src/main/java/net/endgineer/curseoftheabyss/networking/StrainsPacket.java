@@ -9,18 +9,18 @@ import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.api.distmarker.Dist;
 
 public class StrainsPacket {
-    public double progress_deprivation;
+    public int progress_deprivation;
 
-    public StrainsPacket(double progress_deprivation) {
+    public StrainsPacket(int progress_deprivation) {
         this.progress_deprivation = progress_deprivation;
     }
 
     public static void encode(StrainsPacket message, FriendlyByteBuf buffer) {
-        buffer.writeDouble(message.progress_deprivation);
+        buffer.writeInt(message.progress_deprivation);
     }
 
     public static StrainsPacket decode(FriendlyByteBuf buffer) {
-        return new StrainsPacket(buffer.readDouble());
+        return new StrainsPacket(buffer.readInt());
     }
 
     public static void handle(StrainsPacket message, Supplier<NetworkEvent.Context> supplier) {
