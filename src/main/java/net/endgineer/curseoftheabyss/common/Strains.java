@@ -150,7 +150,17 @@ public class Strains implements Serializable {
             this.buffer_numbness[buffer_second] = 0;
         }
 
-        if(this.strain_numbness > 0) { if(Math.random() < 0.01) { this.target_numbness_width++; } if(this.progress_numbness == this.target_numbness_width) { this.trailing_numbness_width = 0; this.target_numbness_width = 0; this.progress_numbness = 0; } else if(this.target_numbness_width > 0) { this.progress_numbness = Math.min(this.progress_numbness + 0.05, this.target_numbness_width); } }
+        if(this.strain_numbness > 0 && Math.random() < 0.01) {
+            this.target_numbness_width++;
+        }
+
+        if(this.progress_numbness == this.target_numbness_width) {
+            this.trailing_numbness_width = 0;
+            this.target_numbness_width = 0;
+            this.progress_numbness = 0;
+        } else if(this.target_numbness_width > 0) {
+            this.progress_numbness = Math.min(this.progress_numbness + 0.05, this.target_numbness_width);
+        }
 
         this.progress_deprivation = this.strain_deprivation > 0 ? Math.min(this.progress_deprivation + 0.05, 1) : Math.max(0, this.progress_deprivation - 0.05);
 
@@ -185,8 +195,16 @@ public class Strains implements Serializable {
     }
 
     private double numbness_signal() {
-        if(this.target_numbness_width == 0 || this.progress_numbness < 0 || this.progress_numbness > this.target_numbness_width) { return 0; }
-        else if(this.trailing_numbness_width-this.progress_numbness <= 0.5 && this.target_numbness_width > this.trailing_numbness_width) { if(this.progress_numbness < 0.5) { return 2*this.progress_numbness; } else { this.trailing_numbness_width = this.target_numbness_width; } }
+        if(this.target_numbness_width == 0 || this.progress_numbness < 0 || this.progress_numbness > this.target_numbness_width) {
+            return 0;
+        } else if(this.trailing_numbness_width-this.progress_numbness <= 0.5 && this.target_numbness_width > this.trailing_numbness_width) {
+            if(this.progress_numbness < 0.5) {
+                return 2*this.progress_numbness;
+            } else {
+                this.trailing_numbness_width = this.target_numbness_width;
+            }
+        }
+
         return this.progress_numbness <= 0.5 ? 2*this.progress_numbness : this.progress_numbness <= 0.5+this.target_numbness_width-1 ? 1 : 2*(this.target_numbness_width-this.progress_numbness);
     }
 }
