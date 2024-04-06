@@ -15,7 +15,10 @@ import net.minecraftforge.client.gui.OverlayRegistry;
 import net.minecraftforge.fml.ModList;
 import net.minecraft.client.gui.GuiComponent;
 import top.theillusivec4.curios.api.CuriosApi;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
+@OnlyIn(Dist.CLIENT)
 public class ModOverlays {
     public static final ResourceLocation FIELD = new ResourceLocation(CurseOfTheAbyss.MOD_ID, "textures/gui/field.png");
     

@@ -45,6 +45,8 @@ import top.theillusivec4.curios.api.type.inventory.IDynamicStackHandler;
 import croissantnova.sanitydim.SanityProcessor;
 import croissantnova.sanitydim.capability.SanityProvider;
 import dev.ghen.thirst.foundation.common.capability.ModCapabilities;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 @Mod.EventBusSubscriber(modid = CurseOfTheAbyss.MOD_ID)
 public class ModEvents {
@@ -104,6 +106,7 @@ public class ModEvents {
         });
     }
 
+    @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void onClientChatReceived(ClientChatReceivedEvent event) {
         Minecraft minecraft = Minecraft.getInstance();
@@ -178,6 +181,7 @@ public class ModEvents {
         }
     }
 
+    @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void onPlaySound(PlaySoundEvent event) {
         if(StrainsData.getDeprivationProgress() == 1 && event.getSound().getSource() != SoundSource.MASTER) {
@@ -185,6 +189,7 @@ public class ModEvents {
         }
     }
 
+    @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void onRenderFog(RenderFogEvent event) {
         if(StrainsData.getDeprivationProgress() > 0) {
@@ -195,6 +200,7 @@ public class ModEvents {
         }
     }
 
+    @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void onFogColor(FogColors color) {
         if(StrainsData.getDeprivationProgress() > 0) {
@@ -204,6 +210,7 @@ public class ModEvents {
         }
     }
 
+    @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void onRenderGameOverlayEvent(RenderGameOverlayEvent.Pre event) {
         Minecraft mc = Minecraft.getInstance();
