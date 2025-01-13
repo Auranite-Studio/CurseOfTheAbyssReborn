@@ -48,13 +48,13 @@ public class CurseCapability implements Serializable {
 
         double x = player.getX(), y = player.getY(), z = player.getZ();
 
-        double field = player.level.dimension().location().getPath() == "overworld" ? Abyss.field(Abyss.get(player.level.getServer()).getOrigin(), x, y, z, player.level.getGameTime()) : 0;
+        double field = player.level().dimension().location().getPath() == "overworld" ? Abyss.field(Abyss.get(player.level().getServer()).getOrigin(), x, y, z, player.level().getGameTime()) : 0;
 
         double current_depth = Math.min(y, 0);
 
         double stress = 0;
 
-        if(player.level.dimension().location().getPath() == "overworld" && current_depth < 0) {
+        if(player.level().dimension().location().getPath() == "overworld" && current_depth < 0) {
             this.lowest_depth = Math.min(current_depth, this.lowest_depth);
 
             this.derangement = Math.min(this.derangement + Abyss.distortion(field, y), 1);

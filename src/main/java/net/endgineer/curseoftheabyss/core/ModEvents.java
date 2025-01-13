@@ -14,7 +14,7 @@ import net.endgineer.curseoftheabyss.config.variables.ModVariables;
 import net.endgineer.curseoftheabyss.helpers.creativemd.enhancedvisuals.client.VisualManager;
 import net.endgineer.curseoftheabyss.helpers.creativemd.enhancedvisuals.client.render.EVRenderer;
 import net.minecraft.client.Minecraft;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
@@ -23,9 +23,8 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
-import net.minecraftforge.client.event.RenderGameOverlayEvent;
-import net.minecraftforge.client.event.EntityViewRenderEvent.FogColors;
-import net.minecraftforge.client.event.EntityViewRenderEvent.RenderFogEvent;
+import net.minecraftforge.client.event.RenderGuiOverlayEvent;
+import net.minecraftforge.client.event.ViewportEvent;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
@@ -61,12 +60,12 @@ public class ModEvents {
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void onLivingDeath(LivingDeathEvent event) {
-        Entity livingEntity = event.getEntityLiving();
+        Entity livingEntity = event.getEntity();
 
         if(livingEntity instanceof Player) {
             Player player = ((Player) livingEntity);
             
-            if(player.level.dimension().location().getPath() == "overworld" && Abyss.layer(player.getY()) > ModCommonConfig.CUSTOM.FINALITY.LAYER.get()) {
+            if(player.level().dimension().location().getPath() == "overworld" && Abyss.layer(player.getY()) > ModCommonConfig.CUSTOM.FINALITY.LAYER.get()) {
                 player.getInventory().clearContent();
                 
                 if(ModList.get().isLoaded("curios")) {
@@ -86,7 +85,7 @@ public class ModEvents {
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void onLivingHeal(LivingHealEvent event) {
-        Entity livingEntity = event.getEntityLiving();
+        Entity livingEntity = event.getEntity();
 
         if(livingEntity instanceof Player) {
             Player player = ((Player) livingEntity);
@@ -102,7 +101,7 @@ public class ModEvents {
     @SubscribeEvent
     public static void onServerChatEvent(ServerChatEvent event) {
         event.getPlayer().getCapability(CurseProvider.CURSE).ifPresent(curse -> {
-            event.setComponent(new TranslatableComponent((event.getPlayer().level.dimension().location().getPath() == "overworld" ? event.getPlayer().getY() : 0)+"\n"+curse.getDerangement()+"\n"+event.getUsername()+"\n"+event.getMessage()));
+            event.setMessage(Component.translatable((event.getPlayer().level().dimension().location().getPath() == "overworld" ? event.getPlayer().getY() : 0)+"\n"+curse.getDerangement()+"\n"+event.getUsername()+"\n"+event.getMessage()));
         });
     }
 
@@ -115,7 +114,7 @@ public class ModEvents {
 
         if(constituents.length != 4) { return; }
         
-        double loss = Abyss.loss(Double.parseDouble(constituents[0]), minecraft.player.level.dimension().location().getPath() == "overworld" ? minecraft.player.getY() : 0);
+        double loss = Abyss.loss(Double.parseDouble(constituents[0]), minecraft.player.level().dimension().location().getPath() == "overworld" ? minecraft.player.getY() : 0);
         double corruption = Double.parseDouble(constituents[1])*loss;
 
         if(loss == 1 && ModCommonConfig.CUSTOM.LOSS.FULL.get()) {
@@ -131,9 +130,9 @@ public class ModEvents {
                 modifiedMessage += Math.random() < corruption ? "§k"+constituents[3].charAt(i)+"§r" : constituents[3].charAt(i);
             }
 
-            event.setMessage(new TranslatableComponent("<"+modifiedUsername+"> "+modifiedMessage));
+            event.setMessage(Component.translatable("<"+modifiedUsername+"> "+modifiedMessage));
         } else {
-            event.setMessage(new TranslatableComponent("<"+constituents[2]+"> "+constituents[3]));
+            event.setMessage(Component.translatable("<"+constituents[2]+"> "+constituents[3]));
         }
     }
 
@@ -191,7 +190,7 @@ public class ModEvents {
 
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
-    public static void onRenderFog(RenderFogEvent event) {
+    public static void onRenderFog(ViewportEvent.RenderFog event) {
         if(StrainsData.getDeprivationProgress() > 0) {
             event.setCanceled(true);
             event.setFogShape(FogShape.SPHERE);
@@ -202,7 +201,7 @@ public class ModEvents {
 
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
-    public static void onFogColor(FogColors color) {
+    public static void onFogColor(ViewportEvent.ComputeFogColor color) {
         if(StrainsData.getDeprivationProgress() > 0) {
             color.setRed((float) (1 - StrainsData.getDeprivationProgress()));
             color.setBlue((float) (1 - StrainsData.getDeprivationProgress()));
@@ -212,7 +211,7 @@ public class ModEvents {
 
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
-    public static void onRenderGameOverlayEvent(RenderGameOverlayEvent.Pre event) {
+    public static void onRenderGameOverlayEvent(RenderGuiOverlayEvent.Pre event) {
         Minecraft mc = Minecraft.getInstance();
         if(!mc.isPaused()) {
             if(StrainsData.getDeprivationProgress() == 1) {

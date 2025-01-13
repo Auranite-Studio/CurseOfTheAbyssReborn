@@ -1,7 +1,6 @@
 package net.endgineer.curseoftheabyss.core;
 
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.client.gui.ForgeIngameGui;
 import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.endgineer.curseoftheabyss.CurseOfTheAbyss;
@@ -10,10 +9,7 @@ import net.endgineer.curseoftheabyss.config.spec.ModCommonConfig;
 import net.minecraft.client.Minecraft;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.renderer.GameRenderer;
-import net.minecraftforge.client.gui.IIngameOverlay;
-import net.minecraftforge.client.gui.OverlayRegistry;
 import net.minecraftforge.fml.ModList;
-import net.minecraft.client.gui.GuiComponent;
 import top.theillusivec4.curios.api.CuriosApi;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;

@@ -3,7 +3,6 @@ package net.endgineer.curseoftheabyss.item;
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -16,6 +15,6 @@ public class StarCompassItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltipComponents, TooltipFlag isAdvanced) {
-        tooltipComponents.add(new TranslatableComponent("tooltip.curseoftheabyss.abyss_relic"));
+        tooltipComponents.add(Component.translatable("tooltip.curseoftheabyss.abyss_relic"));
     }
 }

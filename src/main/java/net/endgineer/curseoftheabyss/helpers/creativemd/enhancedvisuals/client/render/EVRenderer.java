@@ -5,8 +5,6 @@ import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.platform.Window;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Matrix4f;
-
 import net.endgineer.curseoftheabyss.helpers.creativemd.enhancedvisuals.api.Visual;
 import net.endgineer.curseoftheabyss.helpers.creativemd.enhancedvisuals.api.type.VisualType;
 import net.endgineer.curseoftheabyss.helpers.creativemd.enhancedvisuals.client.VisualManager;
@@ -17,6 +15,7 @@ import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraftforge.client.ForgeHooksClient;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import org.joml.Matrix4f;
 
 @OnlyIn(Dist.CLIENT)
 public class EVRenderer {

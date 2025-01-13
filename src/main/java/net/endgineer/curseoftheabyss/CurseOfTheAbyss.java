@@ -5,6 +5,7 @@ import net.endgineer.curseoftheabyss.core.ModItems;
 import net.endgineer.curseoftheabyss.core.ModOverlays;
 import net.endgineer.curseoftheabyss.helpers.creativemd.enhancedvisuals.common.addon.curseoftheabyss.CurseOfTheAbyssShaders;
 import net.endgineer.curseoftheabyss.networking.PacketHandler;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
