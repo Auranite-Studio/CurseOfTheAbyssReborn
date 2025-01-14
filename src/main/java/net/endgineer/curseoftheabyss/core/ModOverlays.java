@@ -48,7 +48,7 @@ public class ModOverlays implements IGuiOverlay {
 
         RenderSystem.disableBlend();
 
-//        RenderSystem.setShaderTexture(0, GuiComponent.GUI_ICONS_LOCATION);
+        RenderSystem.setShaderTexture(0, new ResourceLocation("textures/gui/icons.png"));
 
         minecraft.getProfiler().pop();
     }
