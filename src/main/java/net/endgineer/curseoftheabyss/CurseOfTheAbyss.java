@@ -3,6 +3,7 @@ package net.endgineer.curseoftheabyss;
 import net.endgineer.curseoftheabyss.common.ModTabs;
 import net.endgineer.curseoftheabyss.config.spec.ModCommonConfig;
 import net.endgineer.curseoftheabyss.core.ModItems;
+import net.endgineer.curseoftheabyss.core.ModOverlays;
 import net.endgineer.curseoftheabyss.helpers.creativemd.enhancedvisuals.common.addon.curseoftheabyss.CurseOfTheAbyssShaders;
 import net.endgineer.curseoftheabyss.networking.PacketHandler;
 import net.minecraft.resources.ResourceLocation;
@@ -46,7 +47,7 @@ public class CurseOfTheAbyss {
 
     @SubscribeEvent
     public void onClientSetup(FMLClientSetupEvent event) {
-//        ModOverlays.register();
+        ModOverlays.register();
     }
 
     @SubscribeEvent
