@@ -14,7 +14,9 @@ import net.endgineer.curseoftheabyss.config.variables.ModVariables;
 import net.endgineer.curseoftheabyss.helpers.creativemd.enhancedvisuals.client.VisualManager;
 import net.endgineer.curseoftheabyss.helpers.creativemd.enhancedvisuals.client.render.EVRenderer;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
@@ -22,6 +24,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import net.minecraftforge.client.event.ViewportEvent;
@@ -48,7 +51,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @Mod.EventBusSubscriber(modid = CurseOfTheAbyss.MOD_ID)
-public class ModEvents {
+public class ModEvents () {
     @SubscribeEvent
     public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event) {
         if(event.getObject() instanceof Player) {
@@ -142,7 +145,7 @@ public class ModEvents {
     }
 
     @SubscribeEvent
-    public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
+    public static void onPlayerTick(TickEvent.PlayerTickEvent event, LevelAccessor world) {
         if(event.side == LogicalSide.SERVER && event.phase.equals(TickEvent.Phase.END)) {
             event.player.getCapability(CurseProvider.CURSE).ifPresent(curse -> {
                 curse.tick(event.player);
@@ -166,7 +169,7 @@ public class ModEvents {
                     });
                 }
 
-                event.player.hurt(new DamageSource(CurseOfTheAbyss.MOD_ID+"_cursed"), (float) curse.getStrains().observeDeformation(true));
+                event.player.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation("curseoftheabyss:cursed")))), (float) curse.getStrains().observeDeformation(true));
                 
                 curse.getStrains().observeDeprivation(true);
             });
