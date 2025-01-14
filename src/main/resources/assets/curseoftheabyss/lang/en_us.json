@@ -4,5 +4,7 @@
 
   "tooltip.curseoftheabyss.abyss_relic": "§8Relic of the Abyss",
 
-  "item.curseoftheabyss.star_compass": "Star Compass"
+  "item.curseoftheabyss.star_compass": "Star Compass",
+
+  "item_group.curseoftheabyss.items": "Curse of the Abyss Reborn: Items"
 }

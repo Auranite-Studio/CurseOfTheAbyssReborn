@@ -1,5 +1,6 @@
 package net.endgineer.curseoftheabyss;
 
+import net.endgineer.curseoftheabyss.common.ModTabs;
 import net.endgineer.curseoftheabyss.config.spec.ModCommonConfig;
 import net.endgineer.curseoftheabyss.core.ModItems;
 import net.endgineer.curseoftheabyss.core.ModOverlays;
@@ -29,6 +30,7 @@ public class CurseOfTheAbyss {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
+        ModTabs.REGISTRY.register(modEventBus);
         
         modEventBus.addListener(this::onClientSetup);
         modEventBus.addListener(this::onCommonSetup);
