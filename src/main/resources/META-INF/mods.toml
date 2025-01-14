@@ -3,7 +3,7 @@ loaderVersion="[47,)"
 license="GNU General Public License v3.0"
 [[mods]]
 modId="curseoftheabyss"
-version="${file.jarVersion}"
+version="2.0.6+1.20.1"
 displayName="Curse of the Abyss Reborn"
 logoFile="curseoftheabyss.png"
 description=''''''
@@ -16,7 +16,7 @@ description=''''''
 [[dependencies.curseoftheabyss]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.20,1.20.1)"
+    versionRange="[1.20.1,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.curseoftheabyss]]

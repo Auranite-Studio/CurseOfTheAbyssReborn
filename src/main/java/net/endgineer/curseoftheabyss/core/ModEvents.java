@@ -12,7 +12,6 @@ import net.endgineer.curseoftheabyss.common.CurseProvider;
 import net.endgineer.curseoftheabyss.config.spec.ModCommonConfig;
 import net.endgineer.curseoftheabyss.config.variables.ModVariables;
 import net.endgineer.curseoftheabyss.helpers.creativemd.enhancedvisuals.client.VisualManager;
-import net.endgineer.curseoftheabyss.helpers.creativemd.enhancedvisuals.client.render.EVRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -24,6 +23,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
@@ -145,7 +145,7 @@ public class ModEvents {
     }
 
     @SubscribeEvent
-    public static void onPlayerTick(TickEvent.PlayerTickEvent event, LevelAccessor world) {
+    public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if(event.side == LogicalSide.SERVER && event.phase.equals(TickEvent.Phase.END)) {
             event.player.getCapability(CurseProvider.CURSE).ifPresent(curse -> {
                 curse.tick(event.player);
@@ -168,10 +168,10 @@ public class ModEvents {
                         SanityProcessor.addSanity(sanity, (float) curse.getStrains().observeHallucination(true), (ServerPlayer) event.player);
                     });
                 }
+                LevelAccessor world = event.player.level();
+                    event.player.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation("curseoftheabyss:cursed")))), (float) curse.getStrains().observeDeformation(true));
 
-                event.player.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation("curseoftheabyss:cursed")))), (float) curse.getStrains().observeDeformation(true));
-                
-                curse.getStrains().observeDeprivation(true);
+                    curse.getStrains().observeDeprivation(true);
             });
         }
     }
@@ -179,7 +179,7 @@ public class ModEvents {
     @SubscribeEvent
     public static void onRenderTick(RenderTickEvent event) {
         if (event.phase.equals(TickEvent.Phase.END)) {
-            EVRenderer.render();
+//            EVRenderer.render();
         }
     }
 
