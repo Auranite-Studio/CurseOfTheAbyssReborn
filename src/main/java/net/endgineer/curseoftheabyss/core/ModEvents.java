@@ -12,6 +12,7 @@ import net.endgineer.curseoftheabyss.common.CurseProvider;
 import net.endgineer.curseoftheabyss.config.spec.ModCommonConfig;
 import net.endgineer.curseoftheabyss.config.variables.ModVariables;
 import net.endgineer.curseoftheabyss.helpers.creativemd.enhancedvisuals.client.VisualManager;
+import net.endgineer.curseoftheabyss.helpers.creativemd.enhancedvisuals.client.render.EVRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -179,7 +180,7 @@ public class ModEvents {
     @SubscribeEvent
     public static void onRenderTick(RenderTickEvent event) {
         if (event.phase.equals(TickEvent.Phase.END)) {
-//            EVRenderer.render();
+            EVRenderer.render();
         }
     }
 
