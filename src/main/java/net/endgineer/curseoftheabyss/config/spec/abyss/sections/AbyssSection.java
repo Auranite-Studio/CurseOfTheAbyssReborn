@@ -3,7 +3,7 @@ package net.endgineer.curseoftheabyss.config.spec.abyss.sections;
 import net.minecraftforge.common.ForgeConfigSpec;
 
 public class AbyssSection {
-    public final int DEFAULT_SPAN = 64;
+    public final int DEFAULT_SPAN = 2016;
     public final int MINIMUM_SPAN = 64;
     public final int MAXIMUM_SPAN = 2016;
     public final ForgeConfigSpec.ConfigValue<Integer> SPAN;
