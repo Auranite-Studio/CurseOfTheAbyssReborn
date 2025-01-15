@@ -3,10 +3,12 @@ package net.endgineer.curseoftheabyss;
 import net.endgineer.curseoftheabyss.common.ModTabs;
 import net.endgineer.curseoftheabyss.config.spec.ModCommonConfig;
 import net.endgineer.curseoftheabyss.core.ModItems;
-import net.endgineer.curseoftheabyss.core.ModOverlays;
+import net.endgineer.curseoftheabyss.core.StarCompassOverlay;
 import net.endgineer.curseoftheabyss.helpers.creativemd.enhancedvisuals.common.addon.curseoftheabyss.CurseOfTheAbyssShaders;
 import net.endgineer.curseoftheabyss.networking.PacketHandler;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
@@ -14,7 +16,6 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig.Type;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotTypeMessage;
@@ -31,8 +32,7 @@ public class CurseOfTheAbyss {
 
         ModItems.register(modEventBus);
         ModTabs.REGISTRY.register(modEventBus);
-        
-        modEventBus.addListener(this::onClientSetup);
+
         modEventBus.addListener(this::onCommonSetup);
         modEventBus.addListener(this::enqueueIMC);
 
@@ -44,17 +44,22 @@ public class CurseOfTheAbyss {
             InterModComms.sendTo(CuriosApi.MODID, SlotTypeMessage.REGISTER_TYPE, () -> SlotTypePreset.CHARM.getMessageBuilder().build());
         }
     }
-
-    @SubscribeEvent
-    public void onClientSetup(FMLClientSetupEvent event) {
-        ModOverlays.register();
-    }
-
     @SubscribeEvent
     public void onCommonSetup(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             PacketHandler.init();
             CurseOfTheAbyssShaders.load();
         });
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    @Mod.EventBusSubscriber(modid = CurseOfTheAbyss.MOD_ID, bus=Mod.EventBusSubscriber.Bus.MOD, value= Dist.CLIENT)
+    public static class CurseOfTheAbyssClient {
+
+        @OnlyIn(Dist.CLIENT)
+        @SubscribeEvent
+        public static void onRegisterGuiOverlaysEvent(RegisterGuiOverlaysEvent event){
+            event.registerAboveAll("unlock_gui", StarCompassOverlay.GUI);
+        }
     }
 }
