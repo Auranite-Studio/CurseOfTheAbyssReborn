@@ -27,21 +27,30 @@ package net.endgineer.curseoftheabyss.mixin;
  */
 
 import net.minecraft.core.Holder;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.levelgen.Aquifer;
 import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
 import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
+import net.minecraft.world.level.material.FluidState;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin({NoiseBasedChunkGenerator.class})
 public class NoiseBasedChunkGeneratorMixin {
-//    /**
+    //    /**
 //     * @author Andrew6rant (Andrew Grant)
 //     * @reason Remove the hardcoded -54 lava sea level
 //     */
-//    @Shadow
-//    protected Holder<NoiseGeneratorSettings> settings;
-//
-//    @Shadow
-//    private final Aquifer.FluidPicker globalFluidPicker = (x, y, z) -> { return new Aquifer.FluidStatus(this.settings.value().seaLevel(), this.settings.value().defaultFluid()); };
+    @Overwrite
+    private static Aquifer.FluidPicker createFluidPicker(NoiseGeneratorSettings p_249264_) {
+        Aquifer.FluidStatus $$1 = new Aquifer.FluidStatus(-54, Blocks.LAVA.defaultBlockState());
+        int $$2 = p_249264_.seaLevel();
+        Aquifer.FluidStatus $$3 = new Aquifer.FluidStatus($$2, p_249264_.defaultFluid());
+        Aquifer.FluidStatus $$4 = new Aquifer.FluidStatus(DimensionType.MIN_Y * 2, Blocks.AIR.defaultBlockState());
+        return (p_224274_, p_224275_, p_224276_) -> {
+            return p_224275_ < Math.min(-1020, $$2) ? $$1 : $$3;
+        };
+    }
 }

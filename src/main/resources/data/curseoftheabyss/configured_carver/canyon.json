@@ -2,7 +2,7 @@
   "type": "minecraft:canyon",
   "config": {
     "lava_level": {
-      "above_bottom": -2032
+      "above_bottom": -1024
     },
     "probability": 0.01,
     "replaceable": "#minecraft:overworld_carver_replaceables",
@@ -46,7 +46,7 @@
         "absolute": -64
       },
       "min_inclusive": {
-        "absolute": -2032
+        "absolute": -1024
       }
     },
     "yScale": 3

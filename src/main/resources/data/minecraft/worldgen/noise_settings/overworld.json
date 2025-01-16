@@ -13,7 +13,7 @@
   "legacy_random_source": false,
   "noise": {
     "height": 2336,
-    "min_y": -2016,
+    "min_y": -1024,
     "size_horizontal": 1,
     "size_vertical": 2
   },
@@ -46,7 +46,7 @@
                   "argument1": {
                     "type": "minecraft:y_clamped_gradient",
                     "from_value": 0,
-                    "from_y": -2016,
+                    "from_y": -1024,
                     "to_value": 1,
                     "to_y": -40
                   },
@@ -186,7 +186,7 @@
         "argument1": {
           "type": "minecraft:y_clamped_gradient",
           "from_value": 0,
-          "from_y": -2016,
+          "from_y": -1024,
           "to_value": 1,
           "to_y": -40
         },
@@ -230,7 +230,7 @@
                     }
                   },
                   "max": 64,
-                  "min": -2032
+                  "min": -1024
                 }
               }
             }
@@ -282,7 +282,7 @@
               "type": "minecraft:range_choice",
               "input": "minecraft:y",
               "max_exclusive": 51,
-              "min_inclusive": -2032,
+              "min_inclusive": -1024,
               "when_in_range": {
                 "type": "minecraft:noise",
                 "noise": "minecraft:ore_vein_a",
@@ -301,7 +301,7 @@
               "type": "minecraft:range_choice",
               "input": "minecraft:y",
               "max_exclusive": 51,
-              "min_inclusive": -2032,
+              "min_inclusive": -1024,
               "when_in_range": {
                 "type": "minecraft:noise",
                 "noise": "minecraft:ore_vein_b",
@@ -320,7 +320,7 @@
         "type": "minecraft:range_choice",
         "input": "minecraft:y",
         "max_exclusive": 51,
-        "min_inclusive": -2032,
+        "min_inclusive": -1024,
         "when_in_range": {
           "type": "minecraft:noise",
           "noise": "minecraft:ore_veininess",
