@@ -84,4 +84,4 @@ This mod adds integration with [Thirst Was Taken](https://github.com/ghen-git/Th
 
 ### Scaled
 
-Though [Scaled](https://github.com/Lyof429/Scaled) does not interact with this mod, it is still recommended for those that seek increasing difficulty with depth.
+Though [Scaled](https://github.com/Lyof429/Scaled) does not interact with this mod, it is still recommended for those that seek increasing difficulty with depth."# CurseOfTheAbyssReborn" 
