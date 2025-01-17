@@ -3,7 +3,7 @@ loaderVersion="[47,)"
 license="GNU General Public License v3.0"
 [[mods]]
 modId="curseoftheabyss"
-version="1.0.0.1"
+version="1.0.0.2"
 displayName="Curse of the Abyss Reborn"
 logoFile="curseoftheabyss.png"
 description=''''''

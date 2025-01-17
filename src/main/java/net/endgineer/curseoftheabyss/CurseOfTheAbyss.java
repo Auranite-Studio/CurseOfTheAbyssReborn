@@ -3,7 +3,7 @@ package net.endgineer.curseoftheabyss;
 import net.endgineer.curseoftheabyss.common.ModTabs;
 import net.endgineer.curseoftheabyss.config.spec.ModCommonConfig;
 import net.endgineer.curseoftheabyss.core.ModItems;
-import net.endgineer.curseoftheabyss.core.StarCompassOverlay;
+import net.endgineer.curseoftheabyss.client.gui.StarCompassOverlay;
 import net.endgineer.curseoftheabyss.helpers.creativemd.enhancedvisuals.common.addon.curseoftheabyss.CurseOfTheAbyssShaders;
 import net.endgineer.curseoftheabyss.networking.PacketHandler;
 import net.minecraftforge.api.distmarker.Dist;

@@ -1,9 +1,10 @@
-package net.endgineer.curseoftheabyss.core;
+package net.endgineer.curseoftheabyss.client.gui;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.endgineer.curseoftheabyss.CurseOfTheAbyss;
 import net.endgineer.curseoftheabyss.client.CurseData;
 import net.endgineer.curseoftheabyss.config.spec.ModCommonConfig;
+import net.endgineer.curseoftheabyss.core.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.GameRenderer;
