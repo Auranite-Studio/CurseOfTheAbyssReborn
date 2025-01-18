@@ -24,7 +24,8 @@
         "files": [
           "src/main/java/com/esmods/curseoftheabyssreborn/mixins/NoiseBasedChunkGeneratorMixin.java"
         ]
-      }
+      },
+      "path": "~/Mixin"
     },
     {
       "name": "PostChainAccessor",
@@ -36,7 +37,8 @@
         "files": [
           "src/main/java/com/esmods/curseoftheabyssreborn/mixins/PostChainAccessorMixin.java"
         ]
-      }
+      },
+      "path": "~/Mixin"
     },
     {
       "name": "StarCompassCraft",
@@ -47,19 +49,6 @@
       "metadata": {
         "files": [
           "src/main/resources/data/curseoftheabyss/recipe/star_compass_craft.json"
-        ]
-      },
-      "path": "~/StarCompass"
-    },
-    {
-      "name": "StarCompassOverlay",
-      "type": "overlay",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "star_compass_overlay",
-      "metadata": {
-        "files": [
-          "src/main/java/com/esmods/curseoftheabyssreborn/client/screens/StarCompassOverlayOverlay.java"
         ]
       },
       "path": "~/StarCompass"
@@ -101,7 +90,42 @@
           }
         ]
       },
-      "path": "~/StarCompass"
+      "path": "~/Curse"
+    },
+    {
+      "name": "CurseWhenPlayerGoesUp",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "curse_when_player_goes_up",
+      "metadata": {
+        "files": [
+          "src/main/java/com/esmods/curseoftheabyssreborn/procedures/CurseWhenPlayerGoesUpProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Curse"
     }
   ],
   "variable_elements": [
@@ -122,6 +146,18 @@
       "type": "number",
       "scope": "player_lifetime",
       "value": "0.0"
+    },
+    {
+      "name": "curse",
+      "type": "logic",
+      "scope": "player_lifetime",
+      "value": "false"
+    },
+    {
+      "name": "random_sound",
+      "type": "number",
+      "scope": "player_lifetime",
+      "value": "0"
     }
   ],
   "sound_elements": [],
@@ -141,15 +177,24 @@
       {
         "name": "StarCompass",
         "children": []
+      },
+      {
+        "name": "Curse",
+        "children": []
+      },
+      {
+        "name": "Mixin",
+        "children": []
       }
     ]
   },
   "workspaceSettings": {
     "modid": "curseoftheabyss",
-    "modName": "Curse of the Abyss",
-    "version": "1.0.0",
-    "author": "chizh, MCreator",
-    "websiteURL": "https://mcreator.net",
+    "modName": "Curse of the Abyss: The Mystery of the Depths",
+    "version": "1.0.0.1",
+    "description": "This mod adds a new level of danger to Minecraft in deep caves (below the Y\u003d0 level).  The deeper you go down, the stronger the curse will be when you try to climb up.",
+    "author": "Environment Studios",
+    "websiteURL": "https://esmods.com",
     "license": "Not specified",
     "serverSideOnly": false,
     "requiredMods": [],
@@ -159,7 +204,7 @@
       "curios_api"
     ],
     "currentGenerator": "neoforge-1.21.1",
-    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+    "credits": "Created by Environment Studios with support Samuelchik",
     "modElementsPackage": "com.esmods.curseoftheabyssreborn"
   },
   "mcreatorVersion": 202500102423

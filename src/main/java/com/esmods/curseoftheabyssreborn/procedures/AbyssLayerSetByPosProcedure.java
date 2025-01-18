@@ -49,37 +49,31 @@ public class AbyssLayerSetByPosProcedure {
 				_vars.layer = 2;
 				_vars.syncPlayerVariables(entity);
 			}
-		} else if (entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY <= -257 && entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY >= -384) {
-			{
-				CurseoftheabyssModVariables.PlayerVariables _vars = entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES);
-				_vars.layer = 2;
-				_vars.syncPlayerVariables(entity);
-			}
-		} else if (entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY <= -385 && entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY >= -512) {
+		} else if (entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY <= -257 && entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY >= -417) {
 			{
 				CurseoftheabyssModVariables.PlayerVariables _vars = entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES);
 				_vars.layer = 3;
 				_vars.syncPlayerVariables(entity);
 			}
-		} else if (entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY <= -513 && entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY >= -640) {
+		} else if (entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY <= -418 && entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY >= -577) {
 			{
 				CurseoftheabyssModVariables.PlayerVariables _vars = entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES);
 				_vars.layer = 4;
 				_vars.syncPlayerVariables(entity);
 			}
-		} else if (entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY <= -641 && entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY >= -768) {
+		} else if (entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY <= -578 && entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY >= -737) {
 			{
 				CurseoftheabyssModVariables.PlayerVariables _vars = entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES);
 				_vars.layer = 5;
 				_vars.syncPlayerVariables(entity);
 			}
-		} else if (entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY <= -769 && entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY >= -896) {
+		} else if (entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY <= -738 && entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY >= -897) {
 			{
 				CurseoftheabyssModVariables.PlayerVariables _vars = entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES);
 				_vars.layer = 6;
 				_vars.syncPlayerVariables(entity);
 			}
-		} else if (entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY <= -897 && entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY >= -1024) {
+		} else if (entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY <= -898 && entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY >= -1024) {
 			{
 				CurseoftheabyssModVariables.PlayerVariables _vars = entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES);
 				_vars.layer = 7;

@@ -65,6 +65,8 @@ public class CurseoftheabyssModVariables {
 				clone.layer = original.layer;
 				clone.minPosY = original.minPosY;
 				clone.curPosY = original.curPosY;
+				clone.curse = original.curse;
+				clone.random_sound = original.random_sound;
 			}
 			event.getEntity().setData(PLAYER_VARIABLES, clone);
 		}
@@ -74,6 +76,8 @@ public class CurseoftheabyssModVariables {
 		public double layer = 0.0;
 		public double minPosY = 0.0;
 		public double curPosY = 0.0;
+		public boolean curse = false;
+		public double random_sound = 0;
 
 		@Override
 		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
@@ -81,6 +85,8 @@ public class CurseoftheabyssModVariables {
 			nbt.putDouble("layer", layer);
 			nbt.putDouble("minPosY", minPosY);
 			nbt.putDouble("curPosY", curPosY);
+			nbt.putBoolean("curse", curse);
+			nbt.putDouble("random_sound", random_sound);
 			return nbt;
 		}
 
@@ -89,6 +95,8 @@ public class CurseoftheabyssModVariables {
 			layer = nbt.getDouble("layer");
 			minPosY = nbt.getDouble("minPosY");
 			curPosY = nbt.getDouble("curPosY");
+			curse = nbt.getBoolean("curse");
+			random_sound = nbt.getDouble("random_sound");
 		}
 
 		public void syncPlayerVariables(Entity entity) {

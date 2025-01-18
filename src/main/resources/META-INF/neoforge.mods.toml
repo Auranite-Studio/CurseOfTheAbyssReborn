@@ -4,11 +4,12 @@ license="Not specified"
 
 [[mods]]
 modId="curseoftheabyss"
-version="1.0.0"
-displayName="Curse of the Abyss"
-displayURL="https://mcreator.net"
-credits="Created using mod maker MCreator - https://mcreator.net/about"
-authors="chizh, MCreator"
+version="1.0.0.1"
+displayName="Curse of the Abyss: The Mystery of the Depths"
+displayURL="https://esmods.com"
+credits="Created by Environment Studios with support Samuelchik"
+authors="Environment Studios"
+description="This mod adds a new level of danger to Minecraft in deep caves (below the Y=0 level).  The deeper you go down, the stronger the curse will be when you try to climb up."
 
 # Start of user code block mod configuration
 # End of user code block mod configuration
