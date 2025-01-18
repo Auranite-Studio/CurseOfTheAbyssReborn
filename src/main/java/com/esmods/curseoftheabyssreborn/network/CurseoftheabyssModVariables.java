@@ -61,6 +61,7 @@ public class CurseoftheabyssModVariables {
 		public static void clonePlayer(PlayerEvent.Clone event) {
 			PlayerVariables original = event.getOriginal().getData(PLAYER_VARIABLES);
 			PlayerVariables clone = new PlayerVariables();
+			clone.if_6_layer_damaged_death = original.if_6_layer_damaged_death;
 			if (!event.isWasDeath()) {
 				clone.layer = original.layer;
 				clone.minPosY = original.minPosY;
@@ -78,6 +79,7 @@ public class CurseoftheabyssModVariables {
 		public double curPosY = 0.0;
 		public boolean curse = false;
 		public double random_sound = 0;
+		public boolean if_6_layer_damaged_death = false;
 
 		@Override
 		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
@@ -87,6 +89,7 @@ public class CurseoftheabyssModVariables {
 			nbt.putDouble("curPosY", curPosY);
 			nbt.putBoolean("curse", curse);
 			nbt.putDouble("random_sound", random_sound);
+			nbt.putBoolean("if_6_layer_damaged_death", if_6_layer_damaged_death);
 			return nbt;
 		}
 
@@ -97,6 +100,7 @@ public class CurseoftheabyssModVariables {
 			curPosY = nbt.getDouble("curPosY");
 			curse = nbt.getBoolean("curse");
 			random_sound = nbt.getDouble("random_sound");
+			if_6_layer_damaged_death = nbt.getBoolean("if_6_layer_damaged_death");
 		}
 
 		public void syncPlayerVariables(Entity entity) {

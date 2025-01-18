@@ -5,7 +5,12 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.Event;
 
+import net.minecraft.world.level.GameType;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.client.multiplayer.PlayerInfo;
+import net.minecraft.client.Minecraft;
 
 import javax.annotation.Nullable;
 
@@ -31,6 +36,13 @@ public class AbyssLayerSetByPosProcedure {
 			_vars.syncPlayerVariables(entity);
 		}
 		if (entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY < entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).minPosY && entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).layer > 0) {
+			{
+				CurseoftheabyssModVariables.PlayerVariables _vars = entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES);
+				_vars.minPosY = entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY;
+				_vars.syncPlayerVariables(entity);
+			}
+		}
+		if (getEntityGameType(entity) == GameType.CREATIVE && getEntityGameType(entity) == GameType.SPECTATOR) {
 			{
 				CurseoftheabyssModVariables.PlayerVariables _vars = entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES);
 				_vars.minPosY = entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY;
@@ -86,5 +98,16 @@ public class AbyssLayerSetByPosProcedure {
 				_vars.syncPlayerVariables(entity);
 			}
 		}
+	}
+
+	private static GameType getEntityGameType(Entity entity) {
+		if (entity instanceof ServerPlayer serverPlayer) {
+			return serverPlayer.gameMode.getGameModeForPlayer();
+		} else if (entity instanceof Player player && player.level().isClientSide()) {
+			PlayerInfo playerInfo = Minecraft.getInstance().getConnection().getPlayerInfo(player.getGameProfile().getId());
+			if (playerInfo != null)
+				return playerInfo.getGameMode();
+		}
+		return null;
 	}
 }

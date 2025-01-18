@@ -126,6 +126,25 @@
         ]
       },
       "path": "~/Curse"
+    },
+    {
+      "name": "ResetAttributeIf6LayerDamaged",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "reset_attribute_if_6_layer_damaged",
+      "metadata": {
+        "files": [
+          "src/main/java/com/esmods/curseoftheabyssreborn/procedures/ResetAttributeIf6LayerDamagedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Curse"
     }
   ],
   "variable_elements": [
@@ -158,6 +177,12 @@
       "type": "number",
       "scope": "player_lifetime",
       "value": "0"
+    },
+    {
+      "name": "if_6_layer_damaged_death",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
     }
   ],
   "sound_elements": [],
