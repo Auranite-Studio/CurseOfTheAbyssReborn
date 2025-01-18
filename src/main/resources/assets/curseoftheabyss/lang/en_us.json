@@ -1,10 +1,6 @@
 {
-  "death.attack.curseoftheabyss_cursed": "%1$s succumbed to the strains of ascension.",
-  "death.attack.curseoftheabyss_cursed.player": "%1$s succumbed to the strains of ascension while fighting %2$s.",
-
-  "tooltip.curseoftheabyss.abyss_relic": "§8Relic of the Abyss",
-
+  "item.star_compass.tooltip.min_player_pos": "§9Minimum height: §f",
+  "item.star_compass.tooltip.current_player_pos": "§9Current height: §f",
   "item.curseoftheabyss.star_compass": "Star Compass",
-
-  "item_group.curseoftheabyss.items": "Curse of the Abyss Reborn: Items"
+  "item.star_compass.tooltip.layer": "§9Layer: §f"
 }

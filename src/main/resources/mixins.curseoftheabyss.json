@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "com.esmods.curseoftheabyssreborn.mixins",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "NoiseBasedChunkGeneratorMixin",
+    "PostChainAccessorMixin"
+  ],
+  "client": [],
+  "minVersion": "0.8"
+}

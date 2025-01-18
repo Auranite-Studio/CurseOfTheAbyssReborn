@@ -1,0 +1,166 @@
+{
+  "mod_elements": [
+    {
+      "name": "StarCompass",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "star_compass",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/curseoftheabyss/models/item/star_compass.json",
+          "src/main/java/com/esmods/curseoftheabyssreborn/item/StarCompassItem.java"
+        ]
+      },
+      "path": "~/StarCompass"
+    },
+    {
+      "name": "NoiseBasedChunkGenerator",
+      "type": "mixin",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "noise_based_chunk_generator",
+      "metadata": {
+        "files": [
+          "src/main/java/com/esmods/curseoftheabyssreborn/mixins/NoiseBasedChunkGeneratorMixin.java"
+        ]
+      }
+    },
+    {
+      "name": "PostChainAccessor",
+      "type": "mixin",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "post_chain_accessor",
+      "metadata": {
+        "files": [
+          "src/main/java/com/esmods/curseoftheabyssreborn/mixins/PostChainAccessorMixin.java"
+        ]
+      }
+    },
+    {
+      "name": "StarCompassCraft",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "star_compass_craft",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/curseoftheabyss/recipe/star_compass_craft.json"
+        ]
+      },
+      "path": "~/StarCompass"
+    },
+    {
+      "name": "StarCompassOverlay",
+      "type": "overlay",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "star_compass_overlay",
+      "metadata": {
+        "files": [
+          "src/main/java/com/esmods/curseoftheabyssreborn/client/screens/StarCompassOverlayOverlay.java"
+        ]
+      },
+      "path": "~/StarCompass"
+    },
+    {
+      "name": "StarCompassDesc",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "star_compass_desc",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/com/esmods/curseoftheabyssreborn/procedures/StarCompassDescProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/StarCompass"
+    },
+    {
+      "name": "AbyssLayerSetByPos",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "abyss_layer_set_by_pos",
+      "metadata": {
+        "files": [
+          "src/main/java/com/esmods/curseoftheabyssreborn/procedures/AbyssLayerSetByPosProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/StarCompass"
+    }
+  ],
+  "variable_elements": [
+    {
+      "name": "layer",
+      "type": "number",
+      "scope": "player_lifetime",
+      "value": "0.0"
+    },
+    {
+      "name": "minPosY",
+      "type": "number",
+      "scope": "player_lifetime",
+      "value": "0.0"
+    },
+    {
+      "name": "curPosY",
+      "type": "number",
+      "scope": "player_lifetime",
+      "value": "0.0"
+    }
+  ],
+  "sound_elements": [],
+  "tag_elements": {},
+  "tab_element_order": {},
+  "language_map": {
+    "en_us": {
+      "item.star_compass.tooltip.min_player_pos": "§9Minimum height: §f",
+      "item.star_compass.tooltip.current_player_pos": "§9Current height: §f",
+      "item.curseoftheabyss.star_compass": "Star Compass",
+      "item.star_compass.tooltip.layer": "§9Layer: §f"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": [
+      {
+        "name": "StarCompass",
+        "children": []
+      }
+    ]
+  },
+  "workspaceSettings": {
+    "modid": "curseoftheabyss",
+    "modName": "Curse of the Abyss",
+    "version": "1.0.0",
+    "author": "chizh, MCreator",
+    "websiteURL": "https://mcreator.net",
+    "license": "Not specified",
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [
+      "curios_api"
+    ],
+    "currentGenerator": "neoforge-1.21.1",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+    "modElementsPackage": "com.esmods.curseoftheabyssreborn"
+  },
+  "mcreatorVersion": 202500102423
+}
