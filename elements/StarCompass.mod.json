@@ -9,7 +9,11 @@
     "states": [],
     "name": "Star Compass",
     "rarity": "RARE",
-    "creativeTabs": [],
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:CurseOfTheAbyssItems"
+      }
+    ],
     "stackSize": 1,
     "enchantability": 0,
     "useDuration": 0,

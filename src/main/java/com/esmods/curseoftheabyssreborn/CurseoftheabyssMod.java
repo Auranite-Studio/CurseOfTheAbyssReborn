@@ -26,6 +26,8 @@ import java.util.Collection;
 import java.util.ArrayList;
 
 import com.esmods.curseoftheabyssreborn.network.CurseoftheabyssModVariables;
+import com.esmods.curseoftheabyssreborn.init.CurseoftheabyssModTabs;
+import com.esmods.curseoftheabyssreborn.init.CurseoftheabyssModMobEffects;
 import com.esmods.curseoftheabyssreborn.init.CurseoftheabyssModItems;
 
 @Mod("curseoftheabyss")
@@ -41,7 +43,10 @@ public class CurseoftheabyssMod {
 
 		CurseoftheabyssModItems.REGISTRY.register(modEventBus);
 
+		CurseoftheabyssModTabs.REGISTRY.register(modEventBus);
 		CurseoftheabyssModVariables.ATTACHMENT_TYPES.register(modEventBus);
+
+		CurseoftheabyssModMobEffects.REGISTRY.register(modEventBus);
 
 		// Start of user code block mod init
 		// End of user code block mod init
