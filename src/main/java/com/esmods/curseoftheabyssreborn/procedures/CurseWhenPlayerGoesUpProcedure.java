@@ -30,6 +30,7 @@ import javax.annotation.Nullable;
 
 import com.esmods.curseoftheabyssreborn.network.CurseoftheabyssModVariables;
 import com.esmods.curseoftheabyssreborn.init.CurseoftheabyssModMobEffects;
+import com.esmods.curseoftheabyssreborn.configuration.CurseOfTheAbyssConfConfiguration;
 import com.esmods.curseoftheabyssreborn.CurseoftheabyssMod;
 
 @EventBusSubscriber
@@ -47,7 +48,8 @@ public class CurseWhenPlayerGoesUpProcedure {
 		if (entity == null)
 			return;
 		if (!(getEntityGameType(entity) == GameType.CREATIVE) && !(getEntityGameType(entity) == GameType.SPECTATOR)) {
-			if (entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).minPosY + 10 < entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY && entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curse == false) {
+			if (entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).minPosY + (double) CurseOfTheAbyssConfConfiguration.CURSE_HEIGHT.get() < entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY
+					&& entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curse == false) {
 				if (entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).layer == 1) {
 					{
 						CurseoftheabyssModVariables.PlayerVariables _vars = entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES);
@@ -224,9 +226,9 @@ public class CurseWhenPlayerGoesUpProcedure {
 						_vars.curse = true;
 						_vars.syncPlayerVariables(entity);
 					}
-					if (entity instanceof LivingEntity _livingEntity27 && _livingEntity27.getAttributes().hasAttribute(Attributes.MAX_HEALTH))
-						_livingEntity27.getAttribute(Attributes.MAX_HEALTH)
-								.setBaseValue(((entity instanceof LivingEntity _livingEntity26 && _livingEntity26.getAttributes().hasAttribute(Attributes.MAX_HEALTH) ? _livingEntity26.getAttribute(Attributes.MAX_HEALTH).getBaseValue() : 0) - 5));
+					if (entity instanceof LivingEntity _livingEntity28 && _livingEntity28.getAttributes().hasAttribute(Attributes.MAX_HEALTH))
+						_livingEntity28.getAttribute(Attributes.MAX_HEALTH)
+								.setBaseValue(((entity instanceof LivingEntity _livingEntity27 && _livingEntity27.getAttributes().hasAttribute(Attributes.MAX_HEALTH) ? _livingEntity27.getAttribute(Attributes.MAX_HEALTH).getBaseValue() : 0) - 5));
 					entity.hurt(new DamageSource(world.holderOrThrow(DamageTypes.MAGIC)), 0);
 					{
 						CurseoftheabyssModVariables.PlayerVariables _vars = entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES);

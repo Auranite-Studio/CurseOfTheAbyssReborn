@@ -191,6 +191,18 @@
         ]
       },
       "path": "~/Curse"
+    },
+    {
+      "name": "CurseOfTheAbyssConf",
+      "type": "config",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "curse_of_the_abyss_conf",
+      "metadata": {
+        "files": [
+          "src/main/java/com/esmods/curseoftheabyssreborn/configuration/CurseOfTheAbyssConfConfiguration.java"
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -264,7 +276,7 @@
   "workspaceSettings": {
     "modid": "curseoftheabyss",
     "modName": "Curse of the Abyss: The Mystery of the Depths",
-    "version": "1.0.0.1",
+    "version": "1.0.0-test3",
     "description": "This mod adds a new level of danger to Minecraft in deep caves (below the Y\u003d0 level).  The deeper you go down, the stronger the curse will be when you try to climb up.",
     "author": "Environment Studios",
     "websiteURL": "https://esmods.com",
