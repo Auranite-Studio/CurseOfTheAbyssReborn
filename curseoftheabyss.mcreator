@@ -247,6 +247,14 @@
   "tag_elements": {},
   "tab_element_order": {},
   "language_map": {
+    "ru_ru": {
+      "item_group.curseoftheabyss.curse_of_the_abyss_items": "Проклятие бездны: Предметы",
+      "item.star_compass.tooltip.min_player_pos": "§9Минимальная высота: §f",
+      "item.star_compass.tooltip.current_player_pos": "§9Текущая высота: §f",
+      "item.curseoftheabyss.star_compass": "Звёздный компас",
+      "item.star_compass.tooltip.layer": "§9Слой: §f",
+      "effect.curseoftheabyss.bleeding": "Кровотечение"
+    },
     "en_us": {
       "item_group.curseoftheabyss.curse_of_the_abyss_items": "Curse Of The Abyss: Items",
       "item.star_compass.tooltip.min_player_pos": "§9Minimum height: §f",
@@ -292,5 +300,5 @@
     "credits": "Created by Environment Studios with support Samuelchik",
     "modElementsPackage": "com.esmods.curseoftheabyssreborn"
   },
-  "mcreatorVersion": 202500102423
+  "mcreatorVersion": 202400404220
 }

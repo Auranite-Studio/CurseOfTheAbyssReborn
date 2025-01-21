@@ -1,0 +1,8 @@
+{
+  "item_group.curseoftheabyss.curse_of_the_abyss_items": "Проклятие бездны: Предметы",
+  "item.star_compass.tooltip.min_player_pos": "§9Минимальная высота: §f",
+  "item.star_compass.tooltip.current_player_pos": "§9Текущая высота: §f",
+  "item.curseoftheabyss.star_compass": "Звёздный компас",
+  "item.star_compass.tooltip.layer": "§9Слой: §f",
+  "effect.curseoftheabyss.bleeding": "Кровотечение"
+}
