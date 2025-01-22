@@ -35,11 +35,14 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
 @Mixin({NoiseBasedChunkGenerator.class})
-public class NoiseBasedChunkGeneratorMixin {
-    //    /**
-//     * @author Andrew6rant (Andrew Grant)
-//     * @reason Remove the hardcoded -54 lava sea level
-//     */
+public abstract class NoiseBasedChunkGeneratorMixin {
+
+    /**
+     * @author
+     * MagicalAlexey
+     * @reason
+     * Remove the hardcoded -54 lava sea level
+     */
     @Overwrite
     private static Aquifer.FluidPicker createFluidPicker(NoiseGeneratorSettings p_249264_) {
         Aquifer.FluidStatus $$1 = new Aquifer.FluidStatus(-54, Blocks.LAVA.defaultBlockState());
