@@ -47,7 +47,7 @@ public class NoiseBasedChunkGeneratorMixin {
         Aquifer.FluidStatus $$3 = new Aquifer.FluidStatus($$2, p_249264_.defaultFluid());
         Aquifer.FluidStatus $$4 = new Aquifer.FluidStatus(DimensionType.MIN_Y * 2, Blocks.AIR.defaultBlockState());
         return (p_224274_, p_224275_, p_224276_) -> {
-            return p_224275_ < Math.min(-1020, $$2) ? $$1 : $$3;
+            return p_224275_ < Math.min(-1024, $$2) ? $$1 : $$3;
         };
     }
 }
