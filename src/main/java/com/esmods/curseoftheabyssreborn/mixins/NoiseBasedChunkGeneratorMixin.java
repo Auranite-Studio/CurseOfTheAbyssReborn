@@ -45,12 +45,12 @@ public abstract class NoiseBasedChunkGeneratorMixin {
      */
     @Overwrite
     private static Aquifer.FluidPicker createFluidPicker(NoiseGeneratorSettings p_249264_) {
-        Aquifer.FluidStatus $$1 = new Aquifer.FluidStatus(-54, Blocks.LAVA.defaultBlockState());
+        Aquifer.FluidStatus $$1 = new Aquifer.FluidStatus(DimensionType.MIN_Y, Blocks.LAVA.defaultBlockState());
         int $$2 = p_249264_.seaLevel();
         Aquifer.FluidStatus $$3 = new Aquifer.FluidStatus($$2, p_249264_.defaultFluid());
         Aquifer.FluidStatus $$4 = new Aquifer.FluidStatus(DimensionType.MIN_Y * 2, Blocks.AIR.defaultBlockState());
         return (p_224274_, p_224275_, p_224276_) -> {
-            return p_224275_ < Math.min(-1024, $$2) ? $$1 : $$3;
+            return p_224275_ < Math.min(DimensionType.MIN_Y, $$2) ? $$1 : $$3;
         };
     }
 }

@@ -198,6 +198,10 @@ public class CurseWhenPlayerGoesUpProcedure {
 						_vars.syncPlayerVariables(entity);
 					}
 					if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
+						_entity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 2));
+					if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
+						_entity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 200, 2));
+					if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 						_entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 200, 3));
 					if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 						_entity.addEffect(new MobEffectInstance(CurseoftheabyssModMobEffects.BLEEDING, 200, 0));
@@ -242,9 +246,9 @@ public class CurseWhenPlayerGoesUpProcedure {
 						_vars.curse = true;
 						_vars.syncPlayerVariables(entity);
 					}
-					if (entity instanceof LivingEntity _livingEntity29 && _livingEntity29.getAttributes().hasAttribute(Attributes.MAX_HEALTH))
-						_livingEntity29.getAttribute(Attributes.MAX_HEALTH)
-								.setBaseValue(((entity instanceof LivingEntity _livingEntity28 && _livingEntity28.getAttributes().hasAttribute(Attributes.MAX_HEALTH) ? _livingEntity28.getAttribute(Attributes.MAX_HEALTH).getBaseValue() : 0) - 5));
+					if (entity instanceof LivingEntity _livingEntity31 && _livingEntity31.getAttributes().hasAttribute(Attributes.MAX_HEALTH))
+						_livingEntity31.getAttribute(Attributes.MAX_HEALTH)
+								.setBaseValue(((entity instanceof LivingEntity _livingEntity30 && _livingEntity30.getAttributes().hasAttribute(Attributes.MAX_HEALTH) ? _livingEntity30.getAttribute(Attributes.MAX_HEALTH).getBaseValue() : 0) - 5));
 					entity.hurt(new DamageSource(world.holderOrThrow(DamageTypes.MAGIC)), 0);
 					{
 						CurseoftheabyssModVariables.PlayerVariables _vars = entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES);
