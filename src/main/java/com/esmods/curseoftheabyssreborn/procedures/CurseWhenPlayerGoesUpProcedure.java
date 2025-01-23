@@ -205,6 +205,62 @@ public class CurseWhenPlayerGoesUpProcedure {
 						_entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 200, 3));
 					if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 						_entity.addEffect(new MobEffectInstance(CurseoftheabyssModMobEffects.BLEEDING, 200, 0));
+					new Object() {
+						void timedLoop(int timedloopiterator, int timedlooptotal, int ticks) {
+							{
+								CurseoftheabyssModVariables.PlayerVariables _vars = entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES);
+								_vars.random_sound = Mth.nextInt(RandomSource.create(), 1, 5);
+								_vars.syncPlayerVariables(entity);
+							}
+							if (entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).random_sound == 1) {
+								if (world instanceof Level _level) {
+									if (!_level.isClientSide()) {
+										_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("entity.zombie.ambient")), SoundSource.HOSTILE, 1, 1);
+									} else {
+										_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("entity.zombie.ambient")), SoundSource.HOSTILE, 1, 1, false);
+									}
+								}
+							} else if (entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).random_sound == 2) {
+								if (world instanceof Level _level) {
+									if (!_level.isClientSide()) {
+										_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("entity.creeper.primed")), SoundSource.HOSTILE, 1, 1);
+									} else {
+										_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("entity.creeper.primed")), SoundSource.HOSTILE, 1, 1, false);
+									}
+								}
+							} else if (entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).random_sound == 3) {
+								if (world instanceof Level _level) {
+									if (!_level.isClientSide()) {
+										_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("block.lava.ambient")), SoundSource.BLOCKS, 1, 1);
+									} else {
+										_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("block.lava.ambient")), SoundSource.BLOCKS, 1, 1, false);
+									}
+								}
+							} else if (entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).random_sound == 4) {
+								if (world instanceof Level _level) {
+									if (!_level.isClientSide()) {
+										_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("entity.skeleton.ambient")), SoundSource.HOSTILE, 1, 1);
+									} else {
+										_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("entity.skeleton.ambient")), SoundSource.HOSTILE, 1, 1, false);
+									}
+								}
+							} else if (entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).random_sound == 5) {
+								if (world instanceof Level _level) {
+									if (!_level.isClientSide()) {
+										_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("block.sculk_shrieker.shriek")), SoundSource.BLOCKS, 1, 1);
+									} else {
+										_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("block.sculk_shrieker.shriek")), SoundSource.BLOCKS, 1, 1, false);
+									}
+								}
+							}
+							final int tick2 = ticks;
+							CurseoftheabyssMod.queueServerWork(tick2, () -> {
+								if (timedlooptotal > timedloopiterator + 1) {
+									timedLoop(timedloopiterator + 1, timedlooptotal, tick2);
+								}
+							});
+						}
+					}.timedLoop(0, 5, 60);
 					{
 						CurseoftheabyssModVariables.PlayerVariables _vars = entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES);
 						_vars.minPosY = entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).curPosY;
@@ -229,6 +285,8 @@ public class CurseWhenPlayerGoesUpProcedure {
 						_entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 200, 255));
 					if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 						_entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 200, 255));
+					if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
+						_entity.addEffect(new MobEffectInstance(CurseoftheabyssModMobEffects.BLEEDING, 200, 0));
 					entity.hurt(new DamageSource(world.holderOrThrow(DamageTypes.MAGIC)), 12);
 					{
 						CurseoftheabyssModVariables.PlayerVariables _vars = entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES);
@@ -246,9 +304,9 @@ public class CurseWhenPlayerGoesUpProcedure {
 						_vars.curse = true;
 						_vars.syncPlayerVariables(entity);
 					}
-					if (entity instanceof LivingEntity _livingEntity31 && _livingEntity31.getAttributes().hasAttribute(Attributes.MAX_HEALTH))
-						_livingEntity31.getAttribute(Attributes.MAX_HEALTH)
-								.setBaseValue(((entity instanceof LivingEntity _livingEntity30 && _livingEntity30.getAttributes().hasAttribute(Attributes.MAX_HEALTH) ? _livingEntity30.getAttribute(Attributes.MAX_HEALTH).getBaseValue() : 0) - 5));
+					if (entity instanceof LivingEntity _livingEntity39 && _livingEntity39.getAttributes().hasAttribute(Attributes.MAX_HEALTH))
+						_livingEntity39.getAttribute(Attributes.MAX_HEALTH)
+								.setBaseValue(((entity instanceof LivingEntity _livingEntity38 && _livingEntity38.getAttributes().hasAttribute(Attributes.MAX_HEALTH) ? _livingEntity38.getAttribute(Attributes.MAX_HEALTH).getBaseValue() : 0) - 5));
 					entity.hurt(new DamageSource(world.holderOrThrow(DamageTypes.MAGIC)), 0);
 					{
 						CurseoftheabyssModVariables.PlayerVariables _vars = entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES);
