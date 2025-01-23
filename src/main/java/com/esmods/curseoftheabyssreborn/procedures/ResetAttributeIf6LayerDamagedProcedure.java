@@ -30,6 +30,8 @@ public class ResetAttributeIf6LayerDamagedProcedure {
 		if (entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES).if_6_layer_damaged_death) {
 			if (entity instanceof LivingEntity _livingEntity0 && _livingEntity0.getAttributes().hasAttribute(Attributes.MAX_HEALTH))
 				_livingEntity0.getAttribute(Attributes.MAX_HEALTH).setBaseValue(20);
+			if (entity instanceof LivingEntity _entity)
+				_entity.setHealth(20);
 			{
 				CurseoftheabyssModVariables.PlayerVariables _vars = entity.getData(CurseoftheabyssModVariables.PLAYER_VARIABLES);
 				_vars.if_6_layer_damaged_death = false;
