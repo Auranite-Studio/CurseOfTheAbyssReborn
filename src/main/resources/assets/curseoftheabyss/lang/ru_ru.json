@@ -4,5 +4,6 @@
   "item.star_compass.tooltip.current_player_pos": "§9Текущая высота: §f",
   "item.curseoftheabyss.star_compass": "Звёздный компас",
   "item.star_compass.tooltip.layer": "§9Слой: §f",
-  "effect.curseoftheabyss.bleeding": "Кровотечение"
+  "effect.curseoftheabyss.bleeding": "Кровотечение",
+  "biome.curseoftheabyss.test_biome": "Test Biome"
 }
