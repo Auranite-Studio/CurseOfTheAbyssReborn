@@ -1,6 +1,0 @@
-{
-  "type": "neoforge:add_features",
-  "biomes": "#curseoftheabyss:first_layer_forest",
-  "features": "curseoftheabyss:tree_in_first_layer_forest",
-  "step": "vegetal_decoration"
-}
