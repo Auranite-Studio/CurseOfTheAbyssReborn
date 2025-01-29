@@ -225,9 +225,9 @@
       "registry_name": "test_biome",
       "metadata": {
         "files": [
-          "src/main/resources/data/curseoftheabyss/worldgen/placed_feature/test_biome_tree.json",
           "src/main/resources/data/curseoftheabyss/worldgen/configured_feature/test_biome_tree.json",
-          "src/main/resources/data/curseoftheabyss/worldgen/biome/test_biome.json"
+          "src/main/resources/data/curseoftheabyss/worldgen/biome/test_biome.json",
+          "src/main/resources/data/curseoftheabyss/worldgen/placed_feature/test_biome_tree.json"
         ]
       },
       "path": "~/Abyss"
@@ -240,9 +240,9 @@
       "registry_name": "tree_in_first_layer_forest",
       "metadata": {
         "files": [
-          "src/main/resources/data/curseoftheabyss/worldgen/placed_feature/tree_in_first_layer_forest.json",
+          "src/main/resources/data/curseoftheabyss/worldgen/configured_feature/tree_in_first_layer_forest.json",
           "src/main/resources/data/curseoftheabyss/neoforge/biome_modifier/tree_in_first_layer_forest_biome_modifier.json",
-          "src/main/resources/data/curseoftheabyss/worldgen/configured_feature/tree_in_first_layer_forest.json"
+          "src/main/resources/data/curseoftheabyss/worldgen/placed_feature/tree_in_first_layer_forest.json"
         ]
       },
       "path": "~/Abyss"
@@ -342,9 +342,7 @@
     "requiredMods": [],
     "dependencies": [],
     "dependants": [],
-    "mcreatorDependencies": [
-      "curios_api"
-    ],
+    "mcreatorDependencies": [],
     "currentGenerator": "neoforge-1.21.1",
     "credits": "Created by Environment Studios with support Samuelchik",
     "modElementsPackage": "com.esmods.curseoftheabyssreborn"

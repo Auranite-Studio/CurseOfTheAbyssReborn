@@ -29,12 +29,6 @@ ordering="AFTER"
 side="BOTH"
 
 
-[[dependencies.curseoftheabyss]]
-modId="curios_api"
-type="optional"
-versionRange="[0,)"
-ordering="NONE"
-side="BOTH"
 
 
 [[mixins]]
