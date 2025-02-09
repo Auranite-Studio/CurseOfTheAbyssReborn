@@ -87,7 +87,7 @@ public class AbyssCavesBiomeInit {
 						// Y <= maxY (проверяем, что Y < maxY + 1)
 						SurfaceRules.not(SurfaceRules.yStartCheck(VerticalAnchor.absolute(maxY + 1), 0)),
 						SurfaceRules.sequence(
-								// Поверхность (пол)
+								// Surface (Floor)
 								SurfaceRules.ifTrue(
 										SurfaceRules.stoneDepthCheck(0, false, 0, CaveSurface.FLOOR),
 										SurfaceRules.sequence(
@@ -98,12 +98,12 @@ public class AbyssCavesBiomeInit {
 												SurfaceRules.state(groundBlock.defaultBlockState())
 										)
 								),
-								// Стены (потолок)
+								// Walls (Celling)
 								SurfaceRules.ifTrue(
 										SurfaceRules.stoneDepthCheck(0, false, 0, CaveSurface.CEILING),
 										SurfaceRules.state(wallBlock.defaultBlockState())
 								),
-								// Основной слой
+								// Main layer
 								SurfaceRules.state(groundBlock.defaultBlockState())
 						)
 				)

@@ -231,6 +231,54 @@
         ]
       },
       "path": "~/Abyss"
+    },
+    {
+      "name": "TreesInAbyss",
+      "type": "feature",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "trees_in_abyss",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/curseoftheabyss/neoforge/biome_modifier/trees_in_abyss_biome_modifier.json",
+          "src/main/resources/data/curseoftheabyss/worldgen/placed_feature/trees_in_abyss.json",
+          "src/main/java/com/esmods/curseoftheabyssreborn/world/features/TreesInAbyssFeature.java",
+          "src/main/resources/data/curseoftheabyss/worldgen/configured_feature/trees_in_abyss.json"
+        ]
+      },
+      "path": "~/Abyss"
+    },
+    {
+      "name": "TreesInAbyssDopolnitielnoieUsloviieGienieratsii",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "trees_in_abyss_dopolnitielnoie_usloviie_gienieratsii",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/com/esmods/curseoftheabyssreborn/procedures/TreesInAbyssDopolnitielnoieUsloviieGienieratsiiProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Abyss"
     }
   ],
   "variable_elements": [

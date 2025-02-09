@@ -29,6 +29,7 @@ import com.esmods.curseoftheabyssreborn.network.CurseoftheabyssModVariables;
 import com.esmods.curseoftheabyssreborn.init.CurseoftheabyssModTabs;
 import com.esmods.curseoftheabyssreborn.init.CurseoftheabyssModMobEffects;
 import com.esmods.curseoftheabyssreborn.init.CurseoftheabyssModItems;
+import com.esmods.curseoftheabyssreborn.init.CurseoftheabyssModFeatures;
 
 @Mod("curseoftheabyss")
 public class CurseoftheabyssMod {
@@ -45,6 +46,7 @@ public class CurseoftheabyssMod {
 
 		CurseoftheabyssModTabs.REGISTRY.register(modEventBus);
 		CurseoftheabyssModVariables.ATTACHMENT_TYPES.register(modEventBus);
+		CurseoftheabyssModFeatures.REGISTRY.register(modEventBus);
 
 		CurseoftheabyssModMobEffects.REGISTRY.register(modEventBus);
 

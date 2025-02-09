@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#curseoftheabyss:abyss",
+  "features": "curseoftheabyss:trees_in_abyss",
+  "step": "surface_structures"
+}
