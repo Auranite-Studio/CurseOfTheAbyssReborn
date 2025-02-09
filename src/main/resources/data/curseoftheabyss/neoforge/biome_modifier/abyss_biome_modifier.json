@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#curseoftheabyss:abyss",
+  "features": "curseoftheabyss:tree_in_abyss",
+  "step": "vegetal_decoration"
+}

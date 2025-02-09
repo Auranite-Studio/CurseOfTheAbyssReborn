@@ -231,21 +231,6 @@
         ]
       },
       "path": "~/Abyss"
-    },
-    {
-      "name": "TreeInFirstLayerForest",
-      "type": "feature",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "tree_in_first_layer_forest",
-      "metadata": {
-        "files": [
-          "src/main/resources/data/curseoftheabyss/worldgen/configured_feature/tree_in_first_layer_forest.json",
-          "src/main/resources/data/curseoftheabyss/neoforge/biome_modifier/tree_in_first_layer_forest_biome_modifier.json",
-          "src/main/resources/data/curseoftheabyss/worldgen/placed_feature/tree_in_first_layer_forest.json"
-        ]
-      },
-      "path": "~/Abyss"
     }
   ],
   "variable_elements": [
@@ -335,7 +320,7 @@
     "modName": "Curse of the Abyss: The Mystery of the Depths",
     "version": "1.0.0.1",
     "description": "This mod adds a new level of danger to Minecraft in deep caves (below the Y\u003d0 level).  The deeper you go down, the stronger the curse will be when you try to climb up.",
-    "author": "Environment Studios",
+    "author": "Auranite Studio",
     "websiteURL": "https://esmods.com",
     "license": "Not specified",
     "serverSideOnly": false,
@@ -344,8 +329,8 @@
     "dependants": [],
     "mcreatorDependencies": [],
     "currentGenerator": "neoforge-1.21.1",
-    "credits": "Created by Environment Studios with support Samuelchik",
+    "credits": "Created by Auranite Studio with support Samuelchik",
     "modElementsPackage": "com.esmods.curseoftheabyssreborn"
   },
-  "mcreatorVersion": 202400404220
+  "mcreatorVersion": 202500106422
 }
