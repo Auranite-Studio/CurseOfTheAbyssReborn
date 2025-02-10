@@ -1,5 +1,6 @@
 package com.esmods.curseoftheabyssreborn;
 
+import com.esmods.curseoftheabyssreborn.init.CurseoftheabyssModBlocks;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.neoforged.neoforge.event.server.ServerAboutToStartEvent;
@@ -91,7 +92,7 @@ public class AbyssCavesBiomeInit {
 										SurfaceRules.sequence(
 												SurfaceRules.ifTrue(
 														SurfaceRules.waterBlockCheck(-1, 0),
-														SurfaceRules.state(Blocks.GRASS_BLOCK.defaultBlockState())
+														SurfaceRules.state(CurseoftheabyssModBlocks.STONE_WITH_GRASS_LAYER_1.get().defaultBlockState())
 												)
 										)
 								)

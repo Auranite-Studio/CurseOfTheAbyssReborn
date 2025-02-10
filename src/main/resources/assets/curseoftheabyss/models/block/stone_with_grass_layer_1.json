@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "curseoftheabyss:block/stone_layer_1",
+    "up": "curseoftheabyss:block/grass_stone_layer_1_top",
+    "north": "curseoftheabyss:block/grass_stone_layer_1_side",
+    "east": "curseoftheabyss:block/grass_stone_layer_1_side",
+    "south": "curseoftheabyss:block/grass_stone_layer_1_side",
+    "west": "curseoftheabyss:block/grass_stone_layer_1_side",
+    "particle": "curseoftheabyss:block/stone_layer_1"
+  },
+  "render_type": "solid"
+}

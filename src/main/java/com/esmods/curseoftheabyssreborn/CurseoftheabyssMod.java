@@ -30,6 +30,7 @@ import com.esmods.curseoftheabyssreborn.init.CurseoftheabyssModTabs;
 import com.esmods.curseoftheabyssreborn.init.CurseoftheabyssModMobEffects;
 import com.esmods.curseoftheabyssreborn.init.CurseoftheabyssModItems;
 import com.esmods.curseoftheabyssreborn.init.CurseoftheabyssModFeatures;
+import com.esmods.curseoftheabyssreborn.init.CurseoftheabyssModBlocks;
 
 @Mod("curseoftheabyss")
 public class CurseoftheabyssMod {
@@ -41,6 +42,8 @@ public class CurseoftheabyssMod {
 		// End of user code block mod constructor
 		NeoForge.EVENT_BUS.register(this);
 		modEventBus.addListener(this::registerNetworking);
+
+		CurseoftheabyssModBlocks.REGISTRY.register(modEventBus);
 
 		CurseoftheabyssModItems.REGISTRY.register(modEventBus);
 

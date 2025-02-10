@@ -10,7 +10,7 @@
           "tag": "stone_ore_replaceables"
         },
         "state": {
-          "Name": "minecraft:blackstone"
+          "Name": "curseoftheabyss:stone_layer_1"
         }
       },
       {
@@ -19,7 +19,7 @@
           "tag": "deepslate_ore_replaceables"
         },
         "state": {
-          "Name": "minecraft:blackstone"
+          "Name": "curseoftheabyss:stone_layer_1"
         }
       }
     ]

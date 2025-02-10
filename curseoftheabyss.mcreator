@@ -294,6 +294,40 @@
         ]
       },
       "path": "~/Abyss"
+    },
+    {
+      "name": "StoneLayer1",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stone_layer_1",
+      "metadata": {
+        "files": [
+          "src/main/java/com/esmods/curseoftheabyssreborn/block/StoneLayer1Block.java",
+          "src/main/resources/assets/curseoftheabyss/models/block/stone_layer_1.json",
+          "src/main/resources/data/curseoftheabyss/loot_table/blocks/stone_layer_1.json",
+          "src/main/resources/assets/curseoftheabyss/blockstates/stone_layer_1.json",
+          "src/main/resources/assets/curseoftheabyss/models/item/stone_layer_1.json"
+        ]
+      },
+      "path": "~/Layer1"
+    },
+    {
+      "name": "StoneWithGrassLayer1",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stone_with_grass_layer_1",
+      "metadata": {
+        "files": [
+          "src/main/java/com/esmods/curseoftheabyssreborn/block/StoneWithGrassLayer1Block.java",
+          "src/main/resources/assets/curseoftheabyss/blockstates/stone_with_grass_layer_1.json",
+          "src/main/resources/data/curseoftheabyss/loot_table/blocks/stone_with_grass_layer_1.json",
+          "src/main/resources/assets/curseoftheabyss/models/block/stone_with_grass_layer_1.json",
+          "src/main/resources/assets/curseoftheabyss/models/item/stone_with_grass_layer_1.json"
+        ]
+      },
+      "path": "~/Layer1"
     }
   ],
   "variable_elements": [
@@ -335,7 +369,14 @@
     }
   ],
   "sound_elements": [],
-  "tag_elements": {},
+  "tag_elements": {
+    "BLOCKS:minecraft:dirt": [
+      "CUSTOM:StoneWithGrassLayer1"
+    ],
+    "BLOCKS:minecraft:stones": [
+      "CUSTOM:StoneLayer1"
+    ]
+  },
   "tab_element_order": {},
   "language_map": {
     "ru_ru": {
@@ -343,8 +384,12 @@
       "item.star_compass.tooltip.min_player_pos": "§9Минимальная высота: §f",
       "item.star_compass.tooltip.current_player_pos": "§9Текущая высота: §f",
       "item.curseoftheabyss.star_compass": "Звёздный компас",
+      "block.curseoftheabyss.stone_with_grass_layer_1": "Stone With Grass Layer 1",
       "item.star_compass.tooltip.layer": "§9Слой: §f",
       "effect.curseoftheabyss.bleeding": "Кровотечение",
+      "block.curseoftheabyss.stone_layer_1.description_0": "Layer 1",
+      "block.curseoftheabyss.stone_with_grass_layer_1.description_0": "Layer 1",
+      "block.curseoftheabyss.stone_layer_1": "Stone",
       "biome.curseoftheabyss.test_biome": "Test Biome"
     },
     "en_us": {
@@ -352,8 +397,12 @@
       "item.star_compass.tooltip.min_player_pos": "§9Minimum height: §f",
       "item.star_compass.tooltip.current_player_pos": "§9Current height: §f",
       "item.curseoftheabyss.star_compass": "Star Compass",
+      "block.curseoftheabyss.stone_with_grass_layer_1": "Stone With Grass Layer 1",
       "item.star_compass.tooltip.layer": "§9Layer: §f",
       "effect.curseoftheabyss.bleeding": "Bleeding",
+      "block.curseoftheabyss.stone_layer_1.description_0": "Layer 1",
+      "block.curseoftheabyss.stone_with_grass_layer_1.description_0": "Layer 1",
+      "block.curseoftheabyss.stone_layer_1": "Stone",
       "biome.curseoftheabyss.test_biome": "Test Biome"
     }
   },
@@ -374,6 +423,10 @@
       },
       {
         "name": "Abyss",
+        "children": []
+      },
+      {
+        "name": "Layer1",
         "children": []
       }
     ]

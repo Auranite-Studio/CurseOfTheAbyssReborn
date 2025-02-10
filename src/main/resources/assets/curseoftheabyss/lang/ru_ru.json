@@ -3,7 +3,11 @@
   "item.star_compass.tooltip.min_player_pos": "§9Минимальная высота: §f",
   "item.star_compass.tooltip.current_player_pos": "§9Текущая высота: §f",
   "item.curseoftheabyss.star_compass": "Звёздный компас",
+  "block.curseoftheabyss.stone_with_grass_layer_1": "Stone With Grass Layer 1",
   "item.star_compass.tooltip.layer": "§9Слой: §f",
   "effect.curseoftheabyss.bleeding": "Кровотечение",
+  "block.curseoftheabyss.stone_layer_1.description_0": "Layer 1",
+  "block.curseoftheabyss.stone_with_grass_layer_1.description_0": "Layer 1",
+  "block.curseoftheabyss.stone_layer_1": "Stone",
   "biome.curseoftheabyss.test_biome": "Test Biome"
 }
