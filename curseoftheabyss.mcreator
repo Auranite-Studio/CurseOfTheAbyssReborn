@@ -279,6 +279,21 @@
         ]
       },
       "path": "~/Abyss"
+    },
+    {
+      "name": "FirstLayerCavesBasic",
+      "type": "feature",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "first_layer_caves_basic",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/curseoftheabyss/neoforge/biome_modifier/first_layer_caves_basic_biome_modifier.json",
+          "src/main/resources/data/curseoftheabyss/worldgen/configured_feature/first_layer_caves_basic.json",
+          "src/main/resources/data/curseoftheabyss/worldgen/placed_feature/first_layer_caves_basic.json"
+        ]
+      },
+      "path": "~/Abyss"
     }
   ],
   "variable_elements": [

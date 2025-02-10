@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": {
+    "type": "neoforge:any"
+  },
+  "features": "curseoftheabyss:first_layer_caves_basic",
+  "step": "raw_generation"
+}

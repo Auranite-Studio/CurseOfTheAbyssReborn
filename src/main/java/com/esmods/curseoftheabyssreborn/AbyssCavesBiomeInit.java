@@ -59,6 +59,14 @@ public class AbyssCavesBiomeInit {
 					if (currentRuleSource instanceof SurfaceRules.SequenceRuleSource sequenceRuleSource) {
 						List<SurfaceRules.RuleSource> surfaceRules = new ArrayList<>(sequenceRuleSource.sequence());
 						addSurfaceRule(surfaceRules, 1, abyssSurfaceRule(ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("curseoftheabyss", "abyss"))));
+						addSurfaceRule(surfaceRules, ThirdLayer());
+						addSurfaceRule(surfaceRules, FourthLayer());
+						addSurfaceRule(surfaceRules, FifthLayer());
+						addSurfaceRule(surfaceRules, SixthLayer());
+						addSurfaceRule(surfaceRules, SeventhLayer());
+
+
+
 						NoiseGeneratorSettings moddedNoiseGeneratorSettings = new NoiseGeneratorSettings(noiseGeneratorSettings.noiseSettings(), noiseGeneratorSettings.defaultBlock(), noiseGeneratorSettings.defaultFluid(),
 								noiseGeneratorSettings.noiseRouter(), SurfaceRules.sequence(surfaceRules.toArray(SurfaceRules.RuleSource[]::new)), noiseGeneratorSettings.spawnTarget(), noiseGeneratorSettings.seaLevel(),
 								noiseGeneratorSettings.disableMobGeneration(), noiseGeneratorSettings.aquifersEnabled(), noiseGeneratorSettings.oreVeinsEnabled(), noiseGeneratorSettings.useLegacyRandomSource());
@@ -69,49 +77,138 @@ public class AbyssCavesBiomeInit {
 		}
 	}
 
-	private static SurfaceRules.RuleSource abyssSurfaceRule(ResourceKey<Biome> biomeKey) {
+	private static SurfaceRules.RuleSource FirstLayer() {
 		return SurfaceRules.ifTrue(
-				SurfaceRules.isBiome(biomeKey),
-				SurfaceRules.sequence(
-						createLayer(1,-189,-65,Blocks.GRASS_BLOCK, Blocks.DEEPSLATE, Blocks.DEEPSLATE),
-						createLayer(2,-336,-190,Blocks.MUD, Blocks.BLACKSTONE, Blocks.BLACKSTONE),
-						createLayer(3,-483,-337,Blocks.CALCITE, Blocks.CALCITE, Blocks.CALCITE),
-						createLayer(4,-641,-484,Blocks.TUFF, Blocks.TUFF, Blocks.TUFF),
-						createLayer(5,-737,-642,Blocks.ICE, Blocks.PACKED_ICE, Blocks.PACKED_ICE),
-						createLayer(6,-897,-738,Blocks.SAND, Blocks.SANDSTONE, Blocks.SANDSTONE),
-						createLayer(7,-1024,-898,Blocks.GRASS_BLOCK, Blocks.STONE, Blocks.STONE)
-
-
-				)
-		);
-	}
-
-	private static SurfaceRules.RuleSource createLayer(int layer, int minY, int maxY, Block surfaceBlock, Block groundBlock, Block wallBlock) {
-		return SurfaceRules.ifTrue(
-				// Y >= minY
-				SurfaceRules.yStartCheck(VerticalAnchor.absolute(minY), 0),
+				SurfaceRules.yStartCheck(VerticalAnchor.absolute(-189), 0),
 				SurfaceRules.ifTrue(
-						// Y <= maxY (проверяем, что Y < maxY + 1)
-						SurfaceRules.not(SurfaceRules.yStartCheck(VerticalAnchor.absolute(maxY + 1), 0)),
+						SurfaceRules.not(SurfaceRules.yStartCheck(VerticalAnchor.absolute(-65 + 1), 0)),
 						SurfaceRules.sequence(
-								// Surface (Floor)
 								SurfaceRules.ifTrue(
 										SurfaceRules.stoneDepthCheck(0, false, 0, CaveSurface.FLOOR),
 										SurfaceRules.sequence(
 												SurfaceRules.ifTrue(
 														SurfaceRules.waterBlockCheck(-1, 0),
-														SurfaceRules.state(surfaceBlock.defaultBlockState())
-												),
-												SurfaceRules.state(groundBlock.defaultBlockState())
+														SurfaceRules.state(Blocks.GRASS_BLOCK.defaultBlockState())
+												)
 										)
-								),
-								// Walls (Celling)
+								)
+						)
+				)
+		);
+	}
+
+	private static SurfaceRules.RuleSource SecondLayer() {
+		return SurfaceRules.ifTrue(
+				SurfaceRules.yStartCheck(VerticalAnchor.absolute(-336), 0),
+				SurfaceRules.ifTrue(
+						SurfaceRules.not(SurfaceRules.yStartCheck(VerticalAnchor.absolute(-190 + 1), 0)),
+						SurfaceRules.sequence(
 								SurfaceRules.ifTrue(
-										SurfaceRules.stoneDepthCheck(0, false, 0, CaveSurface.CEILING),
-										SurfaceRules.state(wallBlock.defaultBlockState())
-								),
-								// Main layer
-								SurfaceRules.state(groundBlock.defaultBlockState())
+										SurfaceRules.stoneDepthCheck(0, false, 0, CaveSurface.FLOOR),
+										SurfaceRules.sequence(
+												SurfaceRules.ifTrue(
+														SurfaceRules.waterBlockCheck(-1, 0),
+														SurfaceRules.state(Blocks.MUD.defaultBlockState())
+												)
+										)
+								)
+						)
+				)
+		);
+	}
+
+	private static SurfaceRules.RuleSource ThirdLayer() {
+		return SurfaceRules.ifTrue(
+				SurfaceRules.yStartCheck(VerticalAnchor.absolute(-483), 0),
+				SurfaceRules.ifTrue(
+						SurfaceRules.not(SurfaceRules.yStartCheck(VerticalAnchor.absolute(-337 + 1), 0)),
+						SurfaceRules.sequence(
+								SurfaceRules.ifTrue(
+										SurfaceRules.stoneDepthCheck(0, false, 0, CaveSurface.FLOOR),
+										SurfaceRules.sequence(
+												SurfaceRules.ifTrue(
+														SurfaceRules.waterBlockCheck(-1, 0),
+														SurfaceRules.state(Blocks.CALCITE.defaultBlockState())
+												)
+										)
+								)
+						)
+				)
+		);
+	}
+
+	private static SurfaceRules.RuleSource FourthLayer() {
+		return SurfaceRules.ifTrue(
+				SurfaceRules.yStartCheck(VerticalAnchor.absolute(-641), 0),
+				SurfaceRules.ifTrue(
+						SurfaceRules.not(SurfaceRules.yStartCheck(VerticalAnchor.absolute(-484 + 1), 0)),
+						SurfaceRules.sequence(
+								SurfaceRules.ifTrue(
+										SurfaceRules.stoneDepthCheck(0, false, 0, CaveSurface.FLOOR),
+										SurfaceRules.sequence(
+												SurfaceRules.ifTrue(
+														SurfaceRules.waterBlockCheck(-1, 0),
+														SurfaceRules.state(Blocks.GREEN_TERRACOTTA.defaultBlockState())
+												)
+										)
+								)
+						)
+				)
+		);
+	}
+	private static SurfaceRules.RuleSource FifthLayer() {
+		return SurfaceRules.ifTrue(
+				SurfaceRules.yStartCheck(VerticalAnchor.absolute(-737), 0),
+				SurfaceRules.ifTrue(
+						SurfaceRules.not(SurfaceRules.yStartCheck(VerticalAnchor.absolute(-642 + 1), 0)),
+						SurfaceRules.sequence(
+								SurfaceRules.ifTrue(
+										SurfaceRules.stoneDepthCheck(0, false, 0, CaveSurface.FLOOR),
+										SurfaceRules.sequence(
+												SurfaceRules.ifTrue(
+														SurfaceRules.waterBlockCheck(-1, 0),
+														SurfaceRules.state(Blocks.PACKED_ICE.defaultBlockState())
+												)
+										)
+								)
+						)
+				)
+		);
+	}
+	private static SurfaceRules.RuleSource SixthLayer() {
+		return SurfaceRules.ifTrue(
+				SurfaceRules.yStartCheck(VerticalAnchor.absolute(-897), 0),
+				SurfaceRules.ifTrue(
+						SurfaceRules.not(SurfaceRules.yStartCheck(VerticalAnchor.absolute(-738 + 1), 0)),
+						SurfaceRules.sequence(
+								SurfaceRules.ifTrue(
+										SurfaceRules.stoneDepthCheck(0, false, 0, CaveSurface.FLOOR),
+										SurfaceRules.sequence(
+												SurfaceRules.ifTrue(
+														SurfaceRules.waterBlockCheck(-1, 0),
+														SurfaceRules.state(Blocks.SANDSTONE.defaultBlockState())
+												)
+										)
+								)
+						)
+				)
+		);
+	}
+	private static SurfaceRules.RuleSource SeventhLayer() {
+		return SurfaceRules.ifTrue(
+				SurfaceRules.yStartCheck(VerticalAnchor.absolute(-1024), 0),
+				SurfaceRules.ifTrue(
+						SurfaceRules.not(SurfaceRules.yStartCheck(VerticalAnchor.absolute(-898 + 1), 0)),
+						SurfaceRules.sequence(
+								SurfaceRules.ifTrue(
+										SurfaceRules.stoneDepthCheck(0, false, 0, CaveSurface.FLOOR),
+										SurfaceRules.sequence(
+												SurfaceRules.ifTrue(
+														SurfaceRules.waterBlockCheck(-1, 0),
+														SurfaceRules.state(Blocks.ROOTED_DIRT.defaultBlockState())
+												)
+										)
+								)
 						)
 				)
 		);
@@ -121,12 +218,12 @@ public class AbyssCavesBiomeInit {
 			parameters.add(point);
 	}
 
-	private static void addSurfaceRule(List<SurfaceRules.RuleSource> surfaceRules, int index, SurfaceRules.RuleSource rule) {
+	private static void addSurfaceRule(List<SurfaceRules.RuleSource> surfaceRules, SurfaceRules.RuleSource rule) {
 		if (!surfaceRules.contains(rule)) {
-			if (index >= surfaceRules.size()) {
+			if (1 >= surfaceRules.size()) {
 				surfaceRules.add(rule);
 			} else {
-				surfaceRules.add(index, rule);
+				surfaceRules.add(1, rule);
 			}
 		}
 	}
