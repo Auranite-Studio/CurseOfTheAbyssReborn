@@ -73,13 +73,20 @@ public class AbyssCavesBiomeInit {
 		return SurfaceRules.ifTrue(
 				SurfaceRules.isBiome(biomeKey),
 				SurfaceRules.sequence(
-						createLayer(-128, -64, Blocks.GRASS_BLOCK, Blocks.DEEPSLATE, Blocks.DEEPSLATE),
-						createLayer(-256, -129, Blocks.MUD, Blocks.BLACKSTONE, Blocks.BLACKSTONE)
+						createLayer(1,-189,-65,Blocks.GRASS_BLOCK, Blocks.DEEPSLATE, Blocks.DEEPSLATE),
+						createLayer(2,-336,-190,Blocks.MUD, Blocks.BLACKSTONE, Blocks.BLACKSTONE),
+						createLayer(3,-483,-337,Blocks.CALCITE, Blocks.CALCITE, Blocks.CALCITE),
+						createLayer(4,-641,-484,Blocks.TUFF, Blocks.TUFF, Blocks.TUFF),
+						createLayer(5,-737,-642,Blocks.ICE, Blocks.PACKED_ICE, Blocks.PACKED_ICE),
+						createLayer(6,-897,-738,Blocks.SAND, Blocks.SANDSTONE, Blocks.SANDSTONE),
+						createLayer(7,-1024,-898,Blocks.GRASS_BLOCK, Blocks.STONE, Blocks.STONE)
+
+
 				)
 		);
 	}
 
-	private static SurfaceRules.RuleSource createLayer(int minY, int maxY, Block surfaceBlock, Block groundBlock, Block wallBlock) {
+	private static SurfaceRules.RuleSource createLayer(int layer, int minY, int maxY, Block surfaceBlock, Block groundBlock, Block wallBlock) {
 		return SurfaceRules.ifTrue(
 				// Y >= minY
 				SurfaceRules.yStartCheck(VerticalAnchor.absolute(minY), 0),
