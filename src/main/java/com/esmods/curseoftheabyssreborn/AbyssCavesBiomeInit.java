@@ -56,9 +56,12 @@ public class AbyssCavesBiomeInit {
 				if (chunkGenerator instanceof NoiseBasedChunkGenerator noiseGenerator) {
 					NoiseGeneratorSettings noiseGeneratorSettings = noiseGenerator.settings.value();
 					SurfaceRules.RuleSource currentRuleSource = noiseGeneratorSettings.surfaceRule();
-					if (currentRuleSource instanceof SurfaceRules.SequenceRuleSource sequenceRuleSource) {
-						List<SurfaceRules.RuleSource> surfaceRules = new ArrayList<>(sequenceRuleSource.sequence());
-						addSurfaceRule(surfaceRules, 1, abyssSurfaceRule(ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("curseoftheabyss", "abyss"))));
+					if (currentRuleSource instanceof SurfaceRules.SequenceRuleSource(
+                            List<SurfaceRules.RuleSource> sequence
+                    )) {
+						List<SurfaceRules.RuleSource> surfaceRules = new ArrayList<>(sequence);
+						addSurfaceRule(surfaceRules, FirstLayer());
+						addSurfaceRule(surfaceRules, SecondLayer());
 						addSurfaceRule(surfaceRules, ThirdLayer());
 						addSurfaceRule(surfaceRules, FourthLayer());
 						addSurfaceRule(surfaceRules, FifthLayer());
